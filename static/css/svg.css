@@ -1,0 +1,48 @@
+.bottomlayer-blue .bottomlayer,.toplayer-blue .toplayer{
+  background:var(--blue-color);
+  fill:var(--blue-color);
+}
+.bottomlayer-liteblue .bottomlayer,.toplayer-liteblue .toplayer{
+  background:var(--liteblue-color);
+  fill:var(--liteblue-color);
+}
+.bottomlayer-darkblue .bottomlayer,.toplayer-darkblue .toplayer{
+  background:var(--darkblue-color);
+  fill:var(--darkblue-color);
+}
+.bottomlayer-dark .bottomlayer,.bottomlayer-dark .toplayer{
+  background:var(--dark-color);
+  fill:var(--dark-color);
+}
+.bottomlayer-green .bottomlayer,.toplayer-green .toplayer{
+  background:var(--green-color);
+  fill:var(--green-color);
+}
+.bottomlayer-orange .bottomlayer,.toplayer-orange .toplayer{
+  background:var(--orange-color);
+  fill:var(--orange-color);
+}
+.bottomlayer-yellow .bottomlayer,.toplayer-yellow .toplayer{
+  background:var(--yellow-color);
+  fill:var(--yellow-color);
+}
+.bottomlayer-red .bottomlayer,.toplayer-red .toplayer{
+  background:var(--red-color);
+  fill:var(--red-color);
+}
+.bottomlayer-purple .bottomlayer,.toplayer-purple .toplayer{
+  background:var(--purple-color);
+  fill:var(--purple-color);
+}
+.bottomlayer-darkgray .bottomlayer,.toplayer-darkgray .toplayer{
+  background:var(--darkgray-color);
+  fill:var(--darkgray-color);
+}
+.bottomlayer-gray .bottomlayer,.toplayer-gray .toplayer{
+  background:var(--gray-color);
+  fill:var(--gray-color);
+}
+.bottomlayer-lite .bottomlayer,.toplayer-lite .toplayer{
+  background:var(--lite-color);
+  fill:var(--lite-color);
+}

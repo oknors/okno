@@ -1,0 +1,47 @@
+{
+  "_from": "typeface-audiowide@1.1.13",
+  "_id": "typeface-audiowide@1.1.13",
+  "_inBundle": false,
+  "_integrity": "sha512-wHzuPli6Lu4OzSYd6fC2fRLmMEHMQoeNiO7Jya/17SnytR3JMBRCgZkJO96FwQo7FB+/vT9Eij8/3bG+EEp1Qg==",
+  "_location": "/typeface-audiowide",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "typeface-audiowide@1.1.13",
+    "name": "typeface-audiowide",
+    "escapedName": "typeface-audiowide",
+    "rawSpec": "1.1.13",
+    "saveSpec": null,
+    "fetchSpec": "1.1.13"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/typeface-audiowide/-/typeface-audiowide-1.1.13.tgz",
+  "_shasum": "bc5f1a32db4e3ff5179643efae8de1e0aeb6a7c2",
+  "_spec": "typeface-audiowide@1.1.13",
+  "_where": "/home/marcetin/GoProjects/okno/js/parallelcoin",
+  "author": {
+    "name": "Kyle Mathews",
+    "email": "mathews.kyle@gmail.com"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Audiowide typeface",
+  "keywords": [
+    "typeface",
+    "font",
+    "font family",
+    "google fonts",
+    "audiowide"
+  ],
+  "license": "MIT",
+  "main": "index.css",
+  "name": "typeface-audiowide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KyleAMathews/typefaces/tree/master/packages/audiowide"
+  },
+  "version": "1.1.13"
+}

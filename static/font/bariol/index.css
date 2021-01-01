@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'bariolregular';
+  src: url('bariol-regular-webfont.woff2') format('woff2'),
+  url('bariol-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariolthin';
+  src: url('bariol-thin-webfont.woff2') format('woff2'),
+  url('bariol-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariolbold';
+  src: url('bariol-bold-webfont.woff2') format('woff2'),
+  url('bariol-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariollight';
+  src: url('bariol-light-webfont.woff2') format('woff2'),
+  url('bariol-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariolregular_italic';
+  src: url('bariol-regular-italic-webfont.woff2') format('woff2'),
+  url('bariol-regular-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariollight_italic';
+  src: url('bariol-light-italic-webfont.woff2') format('woff2'),
+  url('bariol-light-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariolthin_italic';
+  src: url('bariol-thin-italic-webfont.woff2') format('woff2'),
+  url('bariol-thin-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bariolbold_italic';
+  src: url('bariol-bold-italic-webfont.woff2') format('woff2'),
+  url('bariol-bold-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,74 @@
+body {
+	background-color: transparent;
+	font-size: 14px;
+	color: #303030;
+	margin: 0;
+}
+
+	#source {
+		margin: 0;
+	}
+
+	a {
+		color: #cfcfcf;
+	}
+
+	a:hover {
+		color: #cf3030;
+	}
+
+	.btn {
+		margin: 5% 0 0 0;
+	}
+
+	.subon {
+		--blue: #3075cf;
+	}
+
+	.panel {
+		background-color: rgb(30, 30, 30);
+		margin-top: 3%;
+	}
+
+	.BUY {
+		color: #30cf30;
+	}
+
+	.SELL {
+		color: #cf3030;
+	}
+	
+	#sub-exchanges {
+		color:#808080;;
+	}
+
+	
+
+.table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: left;
+	width: 100%;
+  }
+  .table.table-striped tbody tr:nth-of-type(odd) {
+	background: #cfcfcf;
+  }
+  .table tbody tr.active,.table.table-striped tbody tr.active {
+	background: #f0f1f4;
+  }
+  .table.table-hover tbody tr:hover {
+	background: #f0f1f4;
+  }
+  .table.table-scroll {
+	display: block;
+	overflow-x: auto;
+	padding-bottom: .75rem;
+	white-space: nowrap;
+  }
+  .table td,.table th {
+	border-bottom: .05rem solid #e7e9ed;
+	padding: .6rem .4rem;
+  }
+  .table th {
+	border-bottom-width: .1rem;
+  }

@@ -1,0 +1,16 @@
+:global(:root){
+  --yellow-color: #cfcf30;
+  --orange-color: #cf8030;
+  --red-color: #CF3030;
+  --purple-color: #803080;
+  --blue-color: #3080cf;
+  --liteblue-color: #80a8cf;
+  --darkblue-color: #305880;
+  --green-color: #80cf30;
+
+  --lite-color: #cfcfcf;
+  --litegray-color: #a894a8;
+  --gray-color: #808080;
+  --darkgray-color: #584458;
+  --dark-color: #303030;
+}

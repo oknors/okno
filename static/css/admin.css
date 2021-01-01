@@ -1,0 +1,245 @@
+.md-app {
+  min-height: 320px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.md-drawer {
+  width: 230px;
+  max-width: calc(100vw - 125px);
+}
+
+.card-expansion {
+  height: 500px;
+}
+
+.md-card {
+  width: 300px;
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 3px;
+  font-family: Nunito Sans;
+}
+
+
+
+body {
+  background: #cfcfcf;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 auto;
+  font-size: 112%;
+}
+
+.login{
+  width: 100%;
+  height: 100vh;
+  /* content:"<form method=\"post\" action=\"/login\" class=\"login\"><div class=\"field\"><label for=\"name\">User name</label><div class=\"control\"><input type=\"text\" id=\"name\" class=\"input\" name=\"name\"></div></div><div class=\"field\"><label for=\"password\">Password</label><div class=\"control\"><input type=\"password\" class=\"input\" id=\"password\" name=\"password\"></div></div><div class=\"field\"><div class=\"field\"><button type=\"submit\" class=\"button is-primary\">Login</button></div></div></div></form>" */
+}
+.login input, .login button{
+  width: 100%;
+  height: 31vh;
+  font-size: 12vh;
+  text-align: center;
+}
+.login button{
+  height: 38vh;
+}
+
+
+#login{
+  transition: all 0.3s;
+
+  transform: scale(0);
+}
+#vesicapiscis {
+  width: 480px;
+  background: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 320px;
+  border-radius: 100%;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s;
+}
+#vesicapiscis .slider {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+border:1px solid;
+  border-radius: 100%;
+}
+#vesicapiscis #sliderl {
+    left: 0;
+
+}
+#vesicapiscis #sliderr {
+  right:0;
+}
+
+
+#floweroflife {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:-160px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: scale(0);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+
+@keyframes bounce {
+  0% {
+    left: 2;
+  }
+  20% {
+    left: 30px;
+  }
+  50% {
+    left: 0px;
+  }
+  70% {
+    left: 10px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+.bounce {
+  position: relative;
+  animation: bounce .6s linear;
+}
+
+
+
+
+.circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #303030;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    box-sizing: border-box;
+}
+#m {
+
+  
+}
+#n-n {
+    transform: translateY(-49px);
+}
+#n-ne {
+    transform: translateY(-49px) rotate(60deg);
+    transform-origin: 50% calc(100% - 1px);
+}
+#n-nw {
+    transform: translateY(-49px) rotate(-60deg);
+    transform-origin: 50% calc(100% - 1px);
+}
+#n-s {
+    transform: translateY(49px);
+}
+#n-se {
+    transform: translateY(49px) rotate(-60deg);
+    transform-origin: 50% 1px;
+}
+#n-sw {
+    transform: translateY(49px) rotate(60deg);
+    transform-origin: 50% 1px;
+}
+#o-n {
+    transform: translateY(-98px);
+}
+#o-ne1 {
+    transform: translateY(-98px) rotate(60deg);
+    transform-origin: 50% calc(100% - 1px);
+}
+#o-ne2 {
+    transform: translateY(-98px) rotate(60deg);
+    transform-origin: 50% calc(150% - 2px);
+}
+#o-nw1 {
+    transform: translateY(-98px) rotate(-60deg);
+    transform-origin: 50% calc(100% - 1px);
+}
+#o-nw2 {
+    transform: translateY(-98px) rotate(-60deg);
+    transform-origin: 50% calc(150% - 2px);
+}
+
+#o-s {
+    transform: translateY(98px);
+}
+#o-se1 {
+    transform: translateY(98px) rotate(-60deg);
+    transform-origin: 50% 1px;
+}
+#o-se2 {
+    transform: translateY(98px) rotate(-60deg);
+    transform-origin: 50% calc(-50% + 2px);
+}
+#o-sw1 {
+    transform: translateY(98px) rotate(60deg);
+    transform-origin: 50% 1px;
+}
+#o-sw2 {
+    transform: translateY(98px) rotate(60deg);
+    transform-origin: 50% calc(-50% + 2px);
+}
+
+
+#o-e {
+    transform: translateX(84.870489570875px); /* 49 * sqrt(3) px, to support IE */
+    transform-origin: 50% 100%;
+}
+#o-w {
+    transform: translateX(-84.870489570875px); /* -49 * sqrt(3) px, to support IE */
+    transform-origin: 50% 100%;
+}
+
+
+
+
+
+
+
+#tbx {
+  flex: 1 0 auto;
+}
+
+#chat-messages {
+  min-height: 10vh;
+  height: 60vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

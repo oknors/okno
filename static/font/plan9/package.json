@@ -1,0 +1,16 @@
+{
+  "name": "plan9",
+  "version": "1.0.0",
+  "description": "Plan9 typeface",
+  "main": "index.css",
+  "keywords": [
+    "typeface",
+    "font",
+    "font family",
+    "google fonts",
+    "plan9"
+  ],
+  "author": "Ed Wood  <marcetin@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/p9c/pod/pkg/gui/fonts/ttf"
+}
