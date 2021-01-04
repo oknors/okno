@@ -33,7 +33,7 @@ func GetHosts(j *jdb.JDB) []*Host {
 		parallelcoinINFO(),
 		gitParallelcoinINFO(),
 		whitepaperParallelcoinINFO(),
-		docParallelcoinINFO(),
+		docsParallelcoinINFO(),
 		explorerParallelcoinINFO(),
 		logParallelcoinINFO(),
 
