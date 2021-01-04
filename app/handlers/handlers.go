@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"github.com/p9c/okno/app/jdb"
+	"github.com/oknors/okno/app/jdb"
 )
 
 // Handlers provides common data for our handlers

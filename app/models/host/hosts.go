@@ -3,7 +3,7 @@ package host
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/p9c/okno/app/jdb"
+	"github.com/oknors/okno/app/jdb"
 	"net/http"
 )
 
@@ -56,6 +56,13 @@ func (h *Host) sub(r *mux.Router) *mux.Router {
 	s := r.Host(h.Host).Subrouter()
 	s.StrictSlash(true)
 	return s
+}
+
+func (h *Host) static() func(r *mux.Router) {
+	return func(r *mux.Router) {
+		s := h.sub(r)
+		s.PathPrefix("/").Handler(http.FileServer(http.Dir("js/public/" + h.Slug)))
+	}
 }
 
 // CommonMiddleware --Set content-type

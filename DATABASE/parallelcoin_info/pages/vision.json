@@ -1,0 +1,14 @@
+{
+	"ID": "b2c756ae-3501-4208-bc5d-7f65d530a643",
+	"Title": "Vision",
+	"Content": "\u003cp\u003eIn the 90s began a boom with the beginning of the commercialisation of the internet. Previous to this, it was a field primarily confined to academic institutions, where HTML, HTTP and the Web Browser technologies arose.\u003c/p\u003e\u003cp\u003eIt took about 20 years for the race to master these technologies reached its climax with the establishment of a number of key controllers of the flow of information, Facebook, Google, Twitter, Amazon, Ebay and Paypal, among others.\u003c/p\u003e\u003cp\u003eThe old technology is defined by its centralisation. Decentralisation has a very small part to play in it, with the use of technologies like OAUTH allowing one silo to authenticate a user to access another silo.\u003c/p\u003e\u003cp\u003eThe databases are separated, they are curated by private interests, and dangerously, through subterfuge, these dominant silo operators have very distinct political leanings and philosophies that are not popular and are pushing an increasing number of people into a position where they have no secure accessible means of communicating information with other users, and whitewashing public opinion, or maybe it should be called ‘blue washing’ or ‘red washing’ since both colors are associated with the political groups sharing these political positions.\u003c/p\u003e",
+	"ContentPreview": "",
+	"CustomFields": null,
+	"Slug": "vision",
+	"IsDraft": false,
+	"Published": false,
+	"ItemType": "",
+	"Template": "",
+	"CreatedAt": "2020-12-17T16:29:39.647203987+01:00",
+	"UpdatedAt": "2020-12-17T16:29:39.647204093+01:00"
+}

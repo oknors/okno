@@ -1,8 +1,8 @@
 package seed
 
 import (
-	"github.com/p9c/okno/app/jdb"
-	"github.com/p9c/okno/app/models/post"
+	"github.com/oknors/okno/app/jdb"
+	"github.com/oknors/okno/app/models/post"
 )
 
 type postImport struct {

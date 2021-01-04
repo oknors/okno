@@ -3,7 +3,7 @@ package jdb
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/p9c/okno/app/models/post"
+	"github.com/oknors/okno/app/models/post"
 	"net/http"
 )
 
@@ -23,7 +23,6 @@ func (j *JDB) Create(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		// Handle error
 	}
-
 	if err := j.db.Write(path+"/"+col, id, data); err != nil {
 		fmt.Println("Error", err)
 	}

@@ -4,8 +4,8 @@ import (
 	"html/template"
 	"time"
 
+	"github.com/russross/blackfriday/v2"
 	stripmd "github.com/writeas/go-strip-markdown"
-	"gopkg.in/russross/blackfriday.v2"
 )
 
 // Post contains articles and pages used by the CMS

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+<style>
+html, body{
+  background-color:#303030;
+  color:#cfcfcf;
+}
+main{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+ol, ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ol{
+  background-color: #330033;
+    font-size:2rem;
+}
+
+li{
+padding:0.5rem 1rem;
+}
+
+</style>
+</head>
+<body>
+
+<main>
+
+<ol>
+  {{ range .D }}
+  <li>{{ .Name }} - {{ .Slug }}</li>
+  {{end}}
+  </ol>
+
+<aside>
+
+<form  action="/f/addcoin" method="POST" target="_top">
+    <h1>Add Coin</h1>
+    <label for="coin">Coin Name</label>
+    <input type="text" placeholder="Enter Coin Name" name="coin" required>
+    <input type="text" placeholder="Enter Project" name="coin" required>
+    <input type="text" placeholder="Enter Shifra" name="coin" required>
+    <button type="submit">Add</button>
+</form>
+
+<form action="/f/addnode"  method="POST" target="_top">
+    <h1>Add Node</h1>
+    <label for="coin">Node IP</label>
+    <select name="coin">
+  {{ range .C }}
+  <option value="{{ .Name }}">{{ .Name }}</option>
+  {{end}}
+  
+</select>
+
+    <input type="text" placeholder="Enter IP" name="ip" required>
+    <input type="text" placeholder="Enter Port" name="port" required>
+    <button type="submit">Add</button>
+</form>
+
+
+</aside>
+
+<ul>
+  {{ range .C }}
+  <li>{{ .Name }} - {{ .Slug }}</li>
+  {{end}}
+  </ul>
+
+
+
+</main>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ func (o *OKNO) Handler() http.Handler {
 		host.Routes(r)
 	}
 	o.api(r)
+	o.jorm(r)
 	return handlers.CORS()(handlers.CompressHandler(interceptHandler(r, defaultErrorHandler)))
 }
 
@@ -62,7 +63,7 @@ func defaultErrorHandler(w http.ResponseWriter, status int) {
 	//
 	//	</body>
 	//</html>`
-	t := template.Must(template.ParseFiles("js/errors/error.html"))
+	t := template.Must(template.ParseFiles("errors/error.html"))
 	//check := func(err error) {
 	//    if err != nil {
 	//        log.Fatal(err)

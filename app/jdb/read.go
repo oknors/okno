@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/p9c/okno/app/models/post"
+	"github.com/oknors/okno/app/models/post"
 	"net/http"
 )
 

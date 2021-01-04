@@ -2,10 +2,10 @@ package app
 
 import (
 	"fmt"
-	"github.com/p9c/okno/app/config"
-	"github.com/p9c/okno/app/jdb"
-	"github.com/p9c/okno/app/models/app"
-	"github.com/p9c/okno/app/models/host"
+	"github.com/oknors/okno/app/config"
+	"github.com/oknors/okno/app/jdb"
+	"github.com/oknors/okno/app/models/app"
+	"github.com/oknors/okno/app/models/host"
 	"net/http"
 	"time"
 )
@@ -35,8 +35,8 @@ func NewOKNO() *app.OKNO {
 		//Handler: interceptHandler(o.Handlers(), defaultErrorHandler),
 		//Handler: interceptHandler(o.Handlers(), defaultErrorHandler),
 		Handler: o.Handler(),
-		//Handler: handlers.CORS()(handlers.CompressHandler(o.Handlers())),
-		// Handler: cacheHandler(handlers.CORS()(handlers.CompressHandler(r))),
+		//Handler: handlers.CORS()(handlers.CompressHandler(o.Handler())),
+		//Handler: cacheHandler(handlers.CORS()(handlers.CompressHandler(r))),
 		// Handler: handlers.CompressHandler(r),
 		Addr: ":" + conf.AppPort,
 		// Good practice: enforce timeouts for servers you create!

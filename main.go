@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/p9c/okno/app"
+	"fmt"
+	"github.com/oknors/okno/app"
 	"log"
 )
 
@@ -10,6 +11,7 @@ func main() {
 	okno := app.NewOKNO()
 
 	//log.Fatal(srv.ListenAndServeTLS("./cfg/server.pem", "./cfg/server.key"))
+	fmt.Println("Listening on port:")
 
 	log.Fatal(okno.Server.ListenAndServe())
 	// port := 9898

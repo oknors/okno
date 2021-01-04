@@ -1,0 +1,16 @@
+
+https://min-api.cryptocompare.com/data/all/coinlist
+https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=" + ccID
+
+
+https://coincodex.com/apps/coincodex/cache/all_coins.json
+https://coincodex.com/api/coincodex/get_coin/" + coin.Symbol
+
+https://api.coinranking.com/v1/public/coins
+https://api.coinranking.com/v1/public/coin/:coin_id
+
+
+
+
+
+https://www.coinapi.io/

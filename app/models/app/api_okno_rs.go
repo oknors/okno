@@ -22,10 +22,33 @@ func (o *OKNO) api(r *mux.Router) {
 	sh.HandleFunc("/{col}/{slug}", o.Database.Create).Methods("POST")
 	sh.HandleFunc("/{col}/{slug}", o.Database.Update).Methods("PUT")
 	sh.HandleFunc("/{col}/{slug}", o.Database.Delete).Methods("DELETE")
+
+	st := s.PathPrefix("/status").Subrouter()
+	st.HandleFunc("/", o.ReadStatus).Methods("GET")
 }
 
 // Read all items from the database, unmarshaling the response.
 func (o *OKNO) ReadHosts(w http.ResponseWriter, r *http.Request) {
+	var hosts []map[string]string
+	for _, h := range o.Hosts {
+		host := map[string]string{
+			"host": h.Host,
+			"slug": h.Slug,
+			"name": h.Name,
+		}
+		hosts = append(hosts, host)
+	}
+	js, err := json.Marshal(hosts)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(js)
+}
+
+// Read all items from the database, unmarshaling the response.
+func (o *OKNO) ReadStatus(w http.ResponseWriter, r *http.Request) {
 	var hosts []map[string]string
 	for _, h := range o.Hosts {
 		host := map[string]string{
