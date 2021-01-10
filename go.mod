@@ -1,10 +1,9 @@
 module github.com/oknors/okno
 
-go 1.15
+go 1.14
 
 require (
 	gioui.org v0.0.0-20201229000053-33103593a1b4
-	git.parallelcoin.io/dev/utl v0.0.0-20190729023128-185a4f1ee7e9
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/disintegration/imaging v1.6.2
 	github.com/go-playground/validator/v10 v10.4.1

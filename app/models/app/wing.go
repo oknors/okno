@@ -22,5 +22,4 @@ func (o *OKNO) wing(r *mux.Router) {
 
 
 	s.Headers("Access-Control-Allow-Origin", "*")
-
 }

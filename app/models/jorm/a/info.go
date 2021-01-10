@@ -5,8 +5,8 @@ import (
 
 	"github.com/oknors/okno/app/models/jorm/cfg"
 
-	"git.parallelcoin.io/dev/utl"
-)
+	"github.com/oknors/okno/app/utl"
+	)
 
 func (rpc *BitNode) GetRawMemPool() interface{} {
 	jrc := utl.NewClient(cfg.Credentials.Username, cfg.Credentials.Password, rpc.IP, rpc.Port)

@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"text/template"
 
-	"git.parallelcoin.io/dev/utl"
-)
+	"github.com/oknors/okno/app/utl"
+	)
 
 // TemplateHandler reads in templates
 func TemplateHandler() *template.Template {

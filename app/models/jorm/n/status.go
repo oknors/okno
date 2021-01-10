@@ -3,8 +3,8 @@ package n
 import (
 	"github.com/oknors/okno/app/models/jorm/a"
 
-	"git.parallelcoin.io/dev/utl"
-)
+	"github.com/oknors/okno/app/utl"
+	)
 
 // GetBitNodeStatus returns the full set of information about a node
 func GetBitNodeStatus(a a.BitNode) (bitnode *BitNodeStatus) {

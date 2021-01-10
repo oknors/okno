@@ -14,6 +14,7 @@ func (o *OKNO) Handler() http.Handler {
 	}
 	o.api(r)
 	o.jorm(r)
+	o.wing(r)
 	return handlers.CORS()(handlers.CompressHandler(interceptHandler(r, defaultErrorHandler)))
 }
 

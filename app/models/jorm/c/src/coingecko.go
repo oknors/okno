@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"git.parallelcoin.io/dev/utl"
+	"github.com/oknors/okno/app/utl"
 	"github.com/oknors/okno/app/models/jorm/c"
 	"github.com/oknors/okno/app/models/jorm/cfg"
 	"github.com/oknors/okno/app/models/jorm/jdb"
