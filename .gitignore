@@ -16,3 +16,13 @@
 /DATABASE/
 /DATABASE/
 /DATABASE/
+
+
+.DS_Store
+/node_modules/
+/src/node_modules/
+yarn-error.log
+/__sapper__/
+
+.vercel
+/js/

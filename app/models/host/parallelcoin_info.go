@@ -7,7 +7,7 @@ func parallelcoinINFO() *Host {
 	h := &Host{
 		Name: "ParallelCoin ",
 		Slug: "parallelcoin_info",
-		Host: "parallelcoin.info",
+		Host: "new.parallelcoin.info",
 	}
 	//routes := func(r *mux.Router) {
 	//	s := r.Host(h.Host).Subrouter()
