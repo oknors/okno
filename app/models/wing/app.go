@@ -20,7 +20,7 @@ type WingCal struct {
 	IzbornikRadova   *model.WingVrstaRadova
 	Transfered       model.WingCalGrupaRadova
 	Db               *db.DuoUIdb
-	Client           *model.Client
+	//Client           *model.Client
 	PrikazaniElement *model.WingVrstaRadova
 	Suma             *model.WingIzabraniElementi
 }
