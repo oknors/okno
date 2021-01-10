@@ -3,6 +3,7 @@ module github.com/oknors/okno
 go 1.15
 
 require (
+	gioui.org v0.0.0-20201229000053-33103593a1b4
 	git.parallelcoin.io/dev/utl v0.0.0-20190729023128-185a4f1ee7e9
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/disintegration/imaging v1.6.2
@@ -21,6 +22,7 @@ require (
 	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd
 	github.com/tdewolff/minify v2.3.6+incompatible
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
+	github.com/w-ingsolutions/c v0.0.0-20200817204459-76d55bd42e37
 	github.com/writeas/go-strip-markdown v2.0.1+incompatible
 	golang.org/x/image v0.0.0-20201208152932-35266b937fa6
 	golang.org/x/text v0.3.2

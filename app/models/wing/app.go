@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strconv"
 	"gioui.org/widget"
-	"github.com/w-ingsolutions/c/model"
-	"github.com/w-ingsolutions/capi/db"
+	"github.com/oknors/okno/app/models/wing/db"
+
 )
 
 type WingCal struct {

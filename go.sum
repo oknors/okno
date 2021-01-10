@@ -1,4 +1,5 @@
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
+gioui.org v0.0.0-20201229000053-33103593a1b4 h1:0N5I5isNGBWx0mrlCZCPXaovlPBosWiVf2bOAgqno6A=
 gioui.org v0.0.0-20201229000053-33103593a1b4/go.mod h1:Y+uS7hHMvku1Q+ooaoq6fYD5B2LGoT8JtFgvmYmRzTw=
 git.parallelcoin.io/dev/utl v0.0.0-20190729023128-185a4f1ee7e9 h1:Buj/1FudGpVCKrhxTn0yfEiEoamljS6N9I5sLJ6a3H0=
 git.parallelcoin.io/dev/utl v0.0.0-20190729023128-185a4f1ee7e9/go.mod h1:imQJv2LhqQ+1ApLpv77TgSGyZ06yDOBYyoGTQkSmqr0=
@@ -207,6 +208,8 @@ github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyC
 github.com/valyala/fasttemplate v1.0.1/go.mod h1:UQGH1tvbgY+Nz5t2n7tXsz52dQxojPUpymEIMZ47gx8=
 github.com/valyala/fasttemplate v1.2.1/go.mod h1:KHLXt3tVN2HBp8eijSv/kGJopbvo7S+qRAEEKiv+SiQ=
 github.com/vivint/infectious v0.0.0-20190108171102-2455b059135b/go.mod h1:5oyMAv4hrBEKqBwORFsiqIrCNCmL2qcZLQTdJLYeYIc=
+github.com/w-ingsolutions/c v0.0.0-20200817204459-76d55bd42e37 h1:UZJsnwVLxjm8mbDcr4llz34WCSjGwpYV9TfmI/ZA2b8=
+github.com/w-ingsolutions/c v0.0.0-20200817204459-76d55bd42e37/go.mod h1:KqO4TbOsRt80QxPhwH9Hg5MGLQTe8m25UlJHf32SelU=
 github.com/writeas/go-strip-markdown v2.0.1+incompatible h1:IIqxTM5Jr7RzhigcL6FkrCNfXkvbR+Nbu1ls48pXYcw=
 github.com/writeas/go-strip-markdown v2.0.1+incompatible/go.mod h1:Rsyu10ZhbEK9pXdk8V6MVnZmTzRG0alMNLMwa0J01fE=
 github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhemzwFU4jHLhdvlE6uDZjXFejJXr49I=
@@ -227,6 +230,7 @@ golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a h1:vclmkQCjlDX5OydZ9wv8rB
 golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/exp v0.0.0-20190306152737-a1d7652674e8/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20191002040644-a1355ae1e2c3/go.mod h1:NOZ3BPKG0ec/BKJQgnvsSFpcKLM5xXVWnvZS97DWHgE=
+golang.org/x/exp v0.0.0-20200924195034-c827fd4f18b9 h1:0cRDak1hoWbor1hDM+mvD9xp3f1wcxvEubvb3AiP/5I=
 golang.org/x/exp v0.0.0-20200924195034-c827fd4f18b9/go.mod h1:1phAWC201xIgDyaFpmDeZkgf70Q4Pd/CNqfRtVPtxNw=
 golang.org/x/image v0.0.0-20190227222117-0694c2d4d067/go.mod h1:kZ7UVZpmo3dzQBMxlp+ypCbDeSB+sBbTgSJuh5dn5js=
 golang.org/x/image v0.0.0-20190802002840-cff245a6509b/go.mod h1:FeLwcggjj3mMvU+oOTbSwawSJRM1uh48EjtB4UJZlP0=
