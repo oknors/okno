@@ -20,7 +20,6 @@ func GetHosts(j *jdb.JDB) []*Host {
 		//admin(j),
 		okno(),
 		sokno(),
-
 		beliRS(),
 		bitNodesNET(),
 		comhttpORG(),

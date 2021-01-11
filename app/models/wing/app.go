@@ -2,24 +2,23 @@ package wing
 
 import (
 	"encoding/json"
+	"gioui.org/widget"
 	"github.com/gorilla/mux"
+	"github.com/oknors/okno/app/models/wing/db"
 	"github.com/w-ingsolutions/c/model"
 	"net/http"
 	"strconv"
-	"gioui.org/widget"
-	"github.com/oknors/okno/app/models/wing/db"
-
 )
 
 type WingCal struct {
-	Naziv            string
-	Strana           string
-	Edit             bool
-	Materijal        map[int]*model.WingMaterijal
-	Radovi           model.WingVrstaRadova
-	IzbornikRadova   *model.WingVrstaRadova
-	Transfered       model.WingCalGrupaRadova
-	Db               *db.DuoUIdb
+	Naziv          string
+	Strana         string
+	Edit           bool
+	Materijal      map[int]*model.WingMaterijal
+	Radovi         model.WingVrstaRadova
+	IzbornikRadova *model.WingVrstaRadova
+	Transfered     model.WingCalGrupaRadova
+	Db             *db.DuoUIdb
 	//Client           *model.Client
 	PrikazaniElement *model.WingVrstaRadova
 	Suma             *model.WingIzabraniElementi
@@ -28,7 +27,7 @@ type WingCal struct {
 func NewWingCal() *WingCal {
 	wing := &WingCal{
 		Naziv:            "W-ing Solutions - Kalkulator",
-		Db:               db.DuoUIdbInit("/home/marcetin/wing/BAZA"),
+		Db:               db.DuoUIdbInit("DATABASE/wing"),
 		PrikazaniElement: &model.WingVrstaRadova{},
 		//Suma: &model.WingIzabraniElementi{
 		//	UkupanNeophodanMaterijal: map[int]model.WingNeophodanMaterijal{},
