@@ -63,14 +63,20 @@ func GetBitNodes(coins c.Coins) {
 	var bns BitNodeds
 	for _, coin := range coins.C {
 		var bn BitNoded
-		www := cfg.Dir + "/" + cfg.Web + "/data/" + coin.Slug + "/"
+		www := cfg.Dir + "/" + cfg.Web + "data" + coin.Slug + "/"
+
+		fmt.Println("www", www)
 
 		if utl.FileExists(www + "/bitnodes.json") {
+			fmt.Println("wwsdsdsddw", www)
+
 			b = append(b, coin.Slug)
 			bitNodes := a.BitNodes{}
 			if err := jdb.DB.Read(cfg.Web+"/data/"+coin.Slug, "bitnodes", &bitNodes); err != nil {
 				fmt.Println("Errdor", err)
 			}
+			fmt.Println("5464643634643")
+
 			for _, bitnode := range bitNodes {
 				fmt.Println("E bitnode", bitnode)
 				bitNode := GetBitNodeStatus(bitnode)
@@ -83,6 +89,7 @@ func GetBitNodes(coins c.Coins) {
 					Response: true,
 					Data:     bitNode,
 				}
+				fmt.Println("bitNodebitNodebitNodebitNodebitNodebitNodebitNodebitNodebitNode", bitNode)
 				jdb.DB.Write(cfg.Web+"/bitnodes/", bitnode.IP, dataBitNode)
 
 				bn.Coin = coin

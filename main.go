@@ -3,13 +3,41 @@ package main
 import (
 	"fmt"
 	"github.com/oknors/okno/app"
+	"github.com/oknors/okno/app/models/jorm/c"
+	"github.com/oknors/okno/app/models/jorm/n"
 	"log"
+	"time"
 )
 
 func main() {
+	//coins := c.Coins{}
+	coins := c.ReadAllCoins()
 
 	okno := app.NewOKNO()
+	ticker := time.NewTicker(5 * time.Second)
+	quit := make(chan struct{})
+	go func() {
+		for {
+			select {
+			case <-ticker.C:
+				// do stuff
 
+				fmt.Println("Radi kron GetBitNodes")
+				n.GetBitNodes(coins)
+			//csrc.GetCoinSources()
+			//xsrc.GetExchangeSources()
+			// dsrc.GetDataSources()
+
+			case <-quit:
+				ticker.Stop()
+				return
+			}
+		}
+	}()
+
+	//exp.SrcNode().GetAddrs()
+
+	//
 	//log.Fatal(srv.ListenAndServeTLS("./cfg/server.pem", "./cfg/server.key"))
 	fmt.Println("Listening on port:")
 

@@ -119,7 +119,7 @@ func ReadAllCoins() Coins {
 			Name: cs[i].Name,
 			Slug: cs[i].Slug,
 		}
-		cs[i].Logo = LoadLogo(cs[i].Slug, "img32")
+		//cs[i].Logo = LoadLogo(cs[i].Slug, "img32")
 		//cs[i].Link = new(p9.Clickable)
 		fmt.Println("ccb", ccb)
 
