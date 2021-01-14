@@ -30,6 +30,10 @@ func (o *OKNO) jorm(r *mux.Router) {
 	b.HandleFunc("/{coin}/hash/{blockhash}", h.ViewHash).Methods("GET")
 	b.HandleFunc("/{coin}/tx/{txid}", h.ViewTx).Methods("GET")
 
+	b.HandleFunc("/{coin}/mempool", h.ViewRawMemPool).Methods("GET")
+	b.HandleFunc("/{coin}/mining", h.ViewMiningInfo).Methods("GET")
+	b.HandleFunc("/{coin}/info", h.ViewInfo).Methods("GET")
+	b.HandleFunc("/{coin}/peers", h.ViewPeers).Methods("GET")
 	b.HandleFunc("/{coin}/market", h.ViewMarket).Methods("GET")
 
 	j := s.PathPrefix("/j").Subrouter()
