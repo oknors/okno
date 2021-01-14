@@ -18,6 +18,9 @@ var (
 	// Web is a subfolder because otherwise the config above would be served by the http.Dir webserver
 	TSL         = Dir + "/tsl/"
 	Web         = "/www/"
-	Credentials = Conf{}
-	Initial     bool
+	Credentials = Conf{
+		Username: "parallelcoinrpc",
+		Password: "GKzRg6irzu9AYqucHpsSUn942JGqQccu2nkbdReaV7Fu",
+	}
+	Initial bool
 )

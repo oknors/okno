@@ -1,10 +1,11 @@
 package n
 
 import (
+	"fmt"
 	"github.com/oknors/okno/app/models/jorm/a"
 
 	"github.com/oknors/okno/app/utl"
-	)
+)
 
 // GetBitNodeStatus returns the full set of information about a node
 func GetBitNodeStatus(a a.BitNode) (bitnode *BitNodeStatus) {
@@ -31,7 +32,7 @@ func GetBitNodeStatus(a a.BitNode) (bitnode *BitNodeStatus) {
 		GeoIP:          GetGeoIP(a.IP),
 	}
 
-	// fmt.Println("bitnode", bitnode)
+	fmt.Println("bitnode", bitnode)
 
 	return
 }

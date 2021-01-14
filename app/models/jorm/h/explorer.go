@@ -14,11 +14,13 @@ func ViewBlocks(w http.ResponseWriter, r *http.Request) {
 	v := mux.Vars(r)
 	per, _ := strconv.Atoi(v["per"])
 	page, _ := strconv.Atoi(v["page"])
+	lastblock := a.RPCSRC(v["coin"]).GetBlockCount()
 	lb := map[string]interface{}{
 		"d": map[string]interface{}{
 			"currentPage": page,
 			"pageCount":   a.RPCSRC(v["coin"]).GetBlockCount() / per,
 			"blocks":      a.RPCSRC(v["coin"]).GetBlocks(per, page),
+			"lastBlock":   lastblock,
 		},
 	}
 
