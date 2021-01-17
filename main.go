@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/oknors/okno/app"
 	"github.com/oknors/okno/app/models/jorm/c"
-	"github.com/oknors/okno/app/models/jorm/n"
+	"github.com/oknors/okno/app/models/jorm/e"
 	"log"
 	"time"
 )
@@ -23,7 +23,8 @@ func main() {
 				// do stuff
 
 				fmt.Println("Radi kron GetBitNodes")
-				n.GetBitNodes(coins)
+				e.GetExplorer(coins)
+				//n.GetBitNodes(coins)
 			//csrc.GetCoinSources()
 			//xsrc.GetExchangeSources()
 			// dsrc.GetDataSources()

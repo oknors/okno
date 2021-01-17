@@ -68,7 +68,7 @@ func ViewBlockHeight(w http.ResponseWriter, r *http.Request) {
 func ViewHash(w http.ResponseWriter, r *http.Request) {
 	v := mux.Vars(r)
 	bh := v["blockhash"]
-	block := a.RPCSRC(v["coin"]).GetBlock(bh)
+	block := (a.RPCSRC(v["coin"]).GetBlock(bh)).(map[string]interface{})
 	h := strconv.FormatInt(block["height"].(int64), 10)
 	http.Redirect(w, r, "/b/"+v["coin"]+"/block/"+h, 301)
 }

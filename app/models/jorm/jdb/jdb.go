@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	scribble "github.com/nanobox-io/golang-scribble"
-	"github.com/oknors/okno/app/models/jorm"
 	"github.com/oknors/okno/app/models/jorm/cfg"
 )
 
@@ -12,31 +11,27 @@ import (
 var DB, _ = scribble.New(cfg.Dir, nil)
 
 // // ReadData appends 'data' path prefix for a database read
-func Read(collection, resource string) interface{} {
-	ic := mod.Cache{}
-	if err := DB.Read(cfg.Web+collection, resource, &ic); err != nil {
+func Read(collection, resource string) (i interface{}) {
+	if err := DB.Read(cfg.Web+collection, resource, &i); err != nil {
 		fmt.Println("Error", err)
 	}
-	return ic.Data
+	return
 }
 
 // WriteCoin appends 'coins' path prefix for a database write
 func WriteCoin(slug string, v interface{}, d interface{}) bool {
-	dc := mod.Cache{Data: d}
 	return DB.Write(cfg.Web+"/coins", slug, v) == nil &&
-		DB.Write(cfg.Web+"/data/"+slug, "info", dc) == nil
+		DB.Write(cfg.Web+"/data/"+slug, "info", d) == nil
 }
 
 // WriteCoin appends 'coins' path prefix for a database write
 func WriteCoinImg(slug string, i interface{}) bool {
-	ic := mod.Cache{Data: i}
-	return DB.Write(cfg.Web+"/data/"+slug, "logo", ic) == nil
+	return DB.Write(cfg.Web+"/data/"+slug, "logo", i) == nil
 }
 
 // WriteCoin appends 'coins' path prefix for a database write
 func WriteCoinData(slug, data string, d interface{}) bool {
-	dc := mod.Cache{Data: d}
-	return DB.Write(cfg.Web+"/data/"+slug, data, dc) == nil
+	return DB.Write(cfg.Web+"/data/"+slug, data, d) == nil
 }
 
 // WriteExchange appends 'exchanges' path prefix for a database write

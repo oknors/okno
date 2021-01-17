@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/oknors/okno/app/models/jorm"
 	"github.com/oknors/okno/app/models/jorm/a"
 	"github.com/oknors/okno/app/models/jorm/c"
 	"github.com/oknors/okno/app/models/jorm/cfg"
@@ -78,11 +77,7 @@ func GetBitNodes(coins c.Coins) {
 					jdb.DB.Write(cfg.Web+"/nodes/", n.IP, n)
 				}
 
-				var dataBitNode = mod.Cache{
-					Response: true,
-					Data:     bitNode,
-				}
-				jdb.DB.Write(cfg.Web+"/bitnodes/", bitnode.IP, dataBitNode)
+				jdb.DB.Write(cfg.Web+"/bitnodes/", bitnode.IP, bitNode)
 
 				fmt.Println("--------------------")
 				fmt.Println("bitNodes", bitNodes)
@@ -100,16 +95,11 @@ func GetBitNodes(coins c.Coins) {
 					fmt.Println("Error", err)
 				}
 			}
-			var dataNodes = mod.Cache{
-				Response: true,
-				Data:     ns,
-			}
-			jdb.DB.Write(cfg.Web, "nodes", dataNodes)
+			jdb.DB.Write(cfg.Web, "nodes", ns)
 		}
 	}
 
-	bnst := mod.Cache{Data: bns}
 	jdb.DB.Write(cfg.Web, "bitnoded", b)
-	jdb.DB.Write(cfg.Web, "bitnodestat", bnst)
+	jdb.DB.Write(cfg.Web, "bitnodestat", bns)
 
 }

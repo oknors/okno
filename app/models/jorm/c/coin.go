@@ -8,7 +8,6 @@ import (
 	"image"
 	"strings"
 
-	"github.com/oknors/okno/app/models/jorm"
 	"github.com/oknors/okno/app/models/jorm/cfg"
 	"github.com/oknors/okno/app/models/jorm/jdb"
 )
@@ -130,10 +129,8 @@ func ReadAllCoins() Coins {
 		N: csb.N,
 		C: cs,
 	}
-	c := mod.Cache{Data: cns}
-	cb := mod.Cache{Data: csb}
-	jdb.DB.Write(cfg.Web, "coins", c)
-	jdb.DB.Write(cfg.Web, "coinsbase", cb)
+	jdb.DB.Write(cfg.Web, "coins", cns)
+	jdb.DB.Write(cfg.Web, "coinsbase", csb)
 	return cns
 }
 

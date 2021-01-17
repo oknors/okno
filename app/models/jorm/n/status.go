@@ -1,7 +1,6 @@
 package n
 
 import (
-	"fmt"
 	"github.com/oknors/okno/app/models/jorm/a"
 
 	"github.com/oknors/okno/app/utl"
@@ -32,7 +31,7 @@ func GetBitNodeStatus(a a.BitNode) (bitnode *BitNodeStatus) {
 		GeoIP:          GetGeoIP(a.IP),
 	}
 
-	fmt.Println("bitnode", bitnode)
+	//fmt.Println("bitnode", bitnode)
 
 	return
 }

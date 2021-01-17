@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/oknors/okno/app/models/jorm"
 	"github.com/oknors/okno/app/models/jorm/cfg"
 	"github.com/oknors/okno/app/models/jorm/jdb"
 )
@@ -51,8 +50,7 @@ func ReadAllExchanges() Exchanges {
 			fmt.Println("Error", err)
 		}
 	}
-	e := mod.Cache{Data: ex}
-	jdb.DB.Write(cfg.Web, "exchanges", e)
+	jdb.DB.Write(cfg.Web, "exchanges", ex)
 
 	return ex
 }

@@ -7,7 +7,6 @@ import (
 	"strconv"
 
 	"encoding/json"
-	"github.com/oknors/okno/app/models/jorm"
 	"github.com/oknors/okno/app/models/jorm/a"
 	"github.com/oknors/okno/app/models/jorm/c"
 	"github.com/oknors/okno/app/models/jorm/cfg"
@@ -49,8 +48,8 @@ func AddCoinHandler(w http.ResponseWriter, r *http.Request) {
 
 	//fmt.Println("name", name)
 	//fmt.Println("coin", coin)
-	c := mod.Cache{Data: coin}
-	jdb.DB.Write(cfg.Web+"/coins", coin.Slug, c)
+
+	jdb.DB.Write(cfg.Web+"/coins", coin.Slug, coin)
 	http.Redirect(w, r, "/", 302)
 }
 
@@ -78,8 +77,8 @@ func AddNodeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	bitNodes = append(bitNodes, bitNode)
-	b := mod.Cache{Data: bitNodes}
-	jdb.DB.Write(c, "bitnodes", b)
+
+	jdb.DB.Write(c, "bitnodes", bitNodes)
 	http.Redirect(w, r, "/", 302)
 }
 
