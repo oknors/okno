@@ -2,6 +2,7 @@ package h
 
 import (
 	"fmt"
+	"github.com/gorilla/mux"
 	"net/http"
 	"regexp"
 	"strconv"
@@ -27,7 +28,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	coins := c.ReadAllCoins()
 	var bitnoded []c.Coin
 	for _, coin := range coins.C {
-		if utl.FileExists(cfg.Web + "/data/" + coin.Slug + "/bitnodes.json") {
+		if utl.FileExists(cfg.Web + "/data/" + coin.Slug + "/info/bitnodes") {
 			bitnoded = append(bitnoded, coin)
 		}
 	}
@@ -113,4 +114,29 @@ func ViewJSON() http.Handler {
 	m.AddFuncRegexp(regexp.MustCompile("[/+]json$"), mjson.Minify)
 
 	return http.StripPrefix("/j", m.Middleware(http.FileServer(http.Dir(cfg.Dir+cfg.Web))))
+}
+
+// NodeHandler handles a request for (?)
+func ViewJSONfolder(w http.ResponseWriter, r *http.Request) {
+	v := mux.Vars(r)
+	m := minify.New()
+	height, err := strconv.ParseUint(v["file"], 10, 64)
+	if err != nil {
+		m.AddFuncRegexp(regexp.MustCompile("[/+]json$"), mjson.Minify)
+		path := v["sec"] + "/" + v["coin"] + "/" + v["type"]
+		http.StripPrefix("/e/"+path, m.Middleware(http.FileServer(http.Dir(cfg.Dir+cfg.Web+path)))).ServeHTTP(w, r)
+	} else {
+		index := map[uint64]string{}
+		if err := jdb.DB.Read(cfg.Web+"/data/"+v["coin"]+"/index", v["type"], &index); err != nil {
+			fmt.Println("Error", err)
+		}
+
+		fmt.Println("index[height]", index[height])
+		out := map[string]interface{}{}
+		if err := jdb.DB.Read(cfg.Web+"/data/"+v["coin"]+"/"+v["type"], index[height], &out); err != nil {
+			fmt.Println("Error", err)
+		}
+		m.AddFuncRegexp(regexp.MustCompile("[/+]json$"), mjson.Minify)
+		json.NewEncoder(w).Encode(out)
+	}
 }

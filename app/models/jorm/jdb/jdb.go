@@ -3,12 +3,11 @@ package jdb
 import (
 	"fmt"
 
-	scribble "github.com/nanobox-io/golang-scribble"
 	"github.com/oknors/okno/app/models/jorm/cfg"
 )
 
 // DB is the central database for jorm
-var DB, _ = scribble.New(cfg.Dir, nil)
+var DB, _ = New(cfg.Dir, nil)
 
 // // ReadData appends 'data' path prefix for a database read
 func Read(collection, resource string) (i interface{}) {

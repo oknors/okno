@@ -42,4 +42,14 @@ func (o *OKNO) jorm(r *mux.Router) {
 
 	j.Headers("Access-Control-Allow-Origin", "*")
 
+	e := s.PathPrefix("/e").Subrouter()
+	//e.HandleFunc("/{coin}/blocks/{per}/{page}", h.ViewBlocks).Methods("GET")
+	//e.HandleFunc("/{coin}/lastblock", h.LastBlock).Methods("GET")
+	e.HandleFunc("/{sec}/{coin}/{type}/{file}", h.ViewJSONfolder)
+	//e.HandleFunc("/{sec}/{coin}/{app}/{type}/{file}", h.ViewJSONfolder)
+	//e.HandleFunc("/{coin}/hash/{blockhash}", h.ViewHash).Methods("GET")
+	//e.HandleFunc("/{coin}/tx/{txid}", h.ViewTx).Methods("GET")
+
+	e.Headers("Access-Control-Allow-Origin", "*")
+
 }

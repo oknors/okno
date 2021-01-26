@@ -10,7 +10,7 @@ require (
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/schema v1.2.0
-	github.com/jcelliott/lumber v0.0.0-20160324203708-dd349441af25 // indirect
+	github.com/jcelliott/lumber v0.0.0-20160324203708-dd349441af25
 	github.com/joho/godotenv v1.3.0
 	github.com/muesli/smartcrop v0.3.0
 	github.com/nanobox-io/golang-scribble v0.0.0-20190309225732-aa3e7c118975

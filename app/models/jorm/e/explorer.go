@@ -9,39 +9,29 @@ import (
 	"github.com/oknors/okno/app/models/jorm/jdb"
 	"github.com/oknors/okno/app/models/jorm/n"
 	"github.com/oknors/okno/app/utl"
-	"strconv"
 )
 
 type Explorer struct {
-	Blocks int    `json:"blocks"`
-	URL    string `json:"url"`
+	Status map[string]uint64 `json:"status"`
 }
 
 // GetExplorer updates the data from blockchain of a coin in the database
 func GetExplorer(coins c.Coins) {
 	var b []string
-	//var bns n.BitNodeds
 	for _, coin := range coins.C {
 		var bn n.BitNoded
 		www := cfg.Web + "data/" + coin.Slug
-		if utl.FileExists(cfg.Dir + www + "/bitnodes.json") {
+		if utl.FileExists(cfg.Dir + www + "/info/bitnodes") {
 			b = append(b, coin.Slug)
 			bitNodes := a.BitNodes{}
-			if err := jdb.DB.Read(www, "bitnodes", &bitNodes); err != nil {
+			if err := jdb.DB.Read(www+"/info", "bitnodes", &bitNodes); err != nil {
 				fmt.Println("Error", err)
 			}
 			for _, bitnode := range bitNodes {
-				bitNode := GetBlockchain(cfg.Dir, www, bitnode)
-				//var dataBitNode = mod.Cache{
-				//	Response: true,
-				//	Data:     bitNode,
-				//}
-				//jdb.DB.Write(cfg.Web+"/bitnodes/", bitnode.IP, dataBitNode)
+				err := GetBlockchain(cfg.Dir, www, bitnode)
+				if err != nil {
 
-				fmt.Println("--------------------")
-				fmt.Println("explorer", bitNode)
-				fmt.Println("--------------------")
-
+				}
 				bn.Coin = coin
 			}
 			//bns = append(bns, bn)
@@ -53,11 +43,6 @@ func GetExplorer(coins c.Coins) {
 					fmt.Println("Error", err)
 				}
 			}
-			//var dataNodes = mod.Cache{
-			//	Response: true,
-			//	Data:     ns,
-			//}
-			//jdb.DB.Write(cfg.Web, "nodes", dataNodes)
 		}
 	}
 
@@ -67,60 +52,98 @@ func GetExplorer(coins c.Coins) {
 
 // GetExplorer returns the full set of information about a block
 func GetBlockchain(dir, www string, a a.BitNode) (err error) {
-	//getInfo := a.GetInfo()
-	if utl.FileExists(dir + www + "/explorer.json") {
+	if utl.FileExists(dir + www + "/info/explorer") {
 		e := Explorer{}
-		if err := jdb.DB.Read(www, "explorer", &e); err != nil {
+		if err := jdb.DB.Read(www+"/info", "explorer", &e); err != nil {
 			fmt.Println("Error", err)
 		}
-		fmt.Println("eeeeeeeeeee", e)
-
-		for {
-			blockRaw := a.GetBlockByHeight(e.Blocks)
-			if blockRaw != "" {
-				jdb.DB.Write(www+"/explorer/blocks", strconv.Itoa(e.Blocks), blockRaw)
-				block := (blockRaw).(map[string]interface{})
-
-				for _, t := range (block["tx"]).([]interface{}) {
-					txid := t.(string)
-					txRaw := a.GetTx(txid)
-					jdb.DB.Write(www+"/explorer/txs", txid, txRaw)
-					tx := (txRaw).(map[string]interface{})
-					if tx["vout"] != nil {
-						for _, nRaw := range tx["vout"].([]interface{}) {
-							if nRaw.(map[string]interface{})["scriptPubKey"] != nil {
-								scriptPubKey := nRaw.(map[string]interface{})["scriptPubKey"].(map[string]interface{})
-								if scriptPubKey["addresses"] != nil {
-									for _, address := range (scriptPubKey["addresses"]).([]interface{}) {
-										e := new(interface{})
-										if err := jdb.DB.Read(www, "explorer", &e); err != nil {
-											fmt.Println("Error", err)
-										}
-										jdb.DB.Write(www+"/explorer/addresses", address.(string), address)
-										fmt.Println("address", address)
-									}
-								}
-							}
-							//fmt.Println("n", nRaw.(map[string]interface{})["n"])
-							//fmt.Println("value", nRaw.(map[string]interface{})["value"])
+		blockCount := a.GetBlockCount()
+		if e.Status != nil && blockCount >= int(e.Status["blocks"]) {
+			for {
+				//e.block(a, www)
+				fmt.Println("BlocksPre", e.Status["blocks"])
+				blocksIndex := map[uint64]string{}
+				if err := jdb.DB.Read(www+"/index", "blocks", &blocksIndex); err != nil {
+					fmt.Println("Error", err)
+				}
+				e.Status["blocks"]++
+				blockRaw := a.GetBlockByHeight(int(e.Status["blocks"]))
+				if blockRaw != nil && blockRaw != "" {
+					blockHash := blockRaw.(map[string]interface{})["hash"].(string)
+					blocksIndex[e.Status["blocks"]] = blockHash
+					go jdb.DB.Write(www+"/blocks", blockHash, blockRaw)
+					block := (blockRaw).(map[string]interface{})
+					if e.Status["blocks"] != 0 {
+						for _, t := range (block["tx"]).([]interface{}) {
+							e.tx(a, www, t.(string))
 						}
 					}
+					//fmt.Println("BlocksPosle", e.Status["blocks"])
+					jdb.DB.Write(www+"/info", "explorer", e)
+					jdb.DB.Write(www+"/index", "blocks", blocksIndex)
+				} else {
+					break
 				}
-
-				//fmt.Println("--------------------")
-				//fmt.Println("block", e.Blocks)
-				//fmt.Println("cccc", www)
-				e.Blocks = e.Blocks + 1
-				jdb.DB.Write(www, "explorer", e)
-			} else {
-				break
 			}
 		}
 	} else {
-		e := Explorer{
-			Blocks: 0,
+		e := &Explorer{
+			Status: map[string]uint64{"blocks": 0, "txs": 0, "addresses": 0},
 		}
-		jdb.DB.Write(www, "explorer", e)
+		jdb.DB.Write(www+"/info", "explorer", e)
+		jdb.DB.Write(www+"/explorer/index", "blocks", map[uint64]string{})
+		jdb.DB.Write(www+"/explorer/index", "txs", map[uint64]string{})
+		jdb.DB.Write(www+"/explorer/index", "addresses", map[uint64]string{})
 	}
 	return
+}
+
+func (e *Explorer) tx(a a.BitNode, www, txid string) {
+	txRaw := a.GetTx(txid)
+	txsIndex := map[uint64]string{}
+	if err := jdb.DB.Read(www+"/index", "txs", &txsIndex); err != nil {
+		fmt.Println("Error", err)
+	}
+	e.Status["txs"]++
+	txsIndex[e.Status["txs"]] = txid
+	//fmt.Println("txid", txid)
+	go jdb.DB.Write(www+"/txs", txid, txRaw)
+	if txRaw != nil {
+		tx := (txRaw).(map[string]interface{})
+		if tx["vout"] != nil {
+			for _, nRaw := range tx["vout"].([]interface{}) {
+				if nRaw.(map[string]interface{})["scriptPubKey"] != nil {
+					scriptPubKey := nRaw.(map[string]interface{})["scriptPubKey"].(map[string]interface{})
+					if scriptPubKey["addresses"] != nil {
+						for _, address := range (scriptPubKey["addresses"]).([]interface{}) {
+							e.addr(www, address.(string))
+						}
+					}
+				}
+			}
+		}
+	}
+	jdb.DB.Write(www+"/index", "txs", txsIndex)
+	return
+}
+
+func (e *Explorer) addr(www, address string) {
+	addressesIndex := map[uint64]string{}
+	if err := jdb.DB.Read(www+"/index", "addresses", &addressesIndex); err != nil {
+		fmt.Println("Error", err)
+	}
+	addressData := new(interface{})
+	//if err := jdb.DB.Read(www, "explorer", &e); err != nil {
+	//	fmt.Println("Error", err)
+	//}
+	e.Status["addresses"]++
+	addressesIndex[e.Status["addresses"]] = address
+	go jdb.DB.Write(www+"/addresses", address, addressData)
+	jdb.DB.Write(www+"/index", "addresses", addressesIndex)
+	//fmt.Println("address", address)
+	return
+}
+
+func (e *Explorer) status() {
+	//s =
 }

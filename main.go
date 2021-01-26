@@ -23,7 +23,7 @@ func main() {
 				// do stuff
 
 				fmt.Println("Radi kron GetBitNodes")
-				e.GetExplorer(coins)
+				go e.GetExplorer(coins)
 				//n.GetBitNodes(coins)
 			//csrc.GetCoinSources()
 			//xsrc.GetExchangeSources()
