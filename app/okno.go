@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"github.com/oknors/okno/app/config"
 	"github.com/oknors/okno/app/jdb"
-	"github.com/oknors/okno/app/models/app"
-	"github.com/oknors/okno/app/models/host"
+	"github.com/oknors/okno/pkg/utl"
 	"net/http"
 	"time"
 )
@@ -19,16 +18,20 @@ const (
 	HTTPMethodOverrideFormKey = "_method"
 )
 
-func NewOKNO() *app.OKNO {
+func NewOKNO() *OKNO {
 	conf, err := config.GetConfiguration()
 	if err != nil {
 		fmt.Println("Error", err)
 	}
-	o := &app.OKNO{
-		Configuration: &conf,
-		Database:      jdb.NewJDB("./" + conf.DBName),
+	j, err := jdb.NewJDB(conf.Path, nil)
+	if err != nil {
+		utl.ErrorLog(err)
 	}
-	o.Hosts = host.GetHosts(o.Database)
+	o := &OKNO{
+		Configuration: &conf,
+		Database:      j,
+	}
+	o.Hosts = o.GetHosts()
 
 	srv := &http.Server{
 		//Handler: o.Handlers(),

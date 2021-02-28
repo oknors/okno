@@ -23,7 +23,7 @@ func GetConfiguration() (Config, error) {
 		AppForwardWebpack: appForwardWebpack,
 		AppUserName:       "marcetin",
 		AppUserPassword:   []byte("$2y$12$JbJmIwUnnXaaiZCYB8pNm.gt/KMdQ4/alJTrWWLkOasd3iNXZRpEu"),
-		DBName:            "DATABASE",
+		Path:              "/okno",
 	}
 	err = validator.New().Struct(config)
 	if err != nil {

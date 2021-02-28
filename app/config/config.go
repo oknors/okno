@@ -12,6 +12,6 @@ type Config struct {
 	//DBPort            int    `validate:"required,gte=1,lte=49151"`
 	//DBUser            string `validate:"required"`
 	//DBPassword        string
-	DBName string `validate:"required"`
+	Path string `validate:"required"`
 	//DBRequireSSL      bool
 }

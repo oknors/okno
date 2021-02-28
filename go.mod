@@ -7,6 +7,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/disintegration/imaging v1.6.2
 	github.com/go-playground/validator/v10 v10.4.1
+	github.com/gofrs/uuid v3.2.0+incompatible
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/schema v1.2.0
@@ -17,6 +18,7 @@ require (
 	github.com/nelkinda/health-go v0.0.1
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/p9c/pod v0.4.16
+	github.com/pborman/uuid v1.2.1
 	github.com/russross/blackfriday/v2 v2.1.0
 	github.com/rwcarlsen/goexif v0.0.0-20190401172101-9e8deecbddbd
 	github.com/tdewolff/minify v2.3.6+incompatible
