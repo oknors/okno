@@ -134,6 +134,11 @@ func (o *OKNO) writeAdmin(w http.ResponseWriter, r *http.Request) {
 }
 
 func (o *OKNO) readHosts(w http.ResponseWriter, r *http.Request) {
+	o.Hosts["log.parallelcoin.info"] = Host{
+		Name: "ParallelCoin Starlog",
+		Slug: "log_parallelcoin_info",
+		Host: "log.parallelcoin.info",
+	}
 	js, err := json.Marshal(o.Hosts)
 	if err != nil {
 	}

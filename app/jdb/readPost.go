@@ -46,15 +46,5 @@ func (j *JDB) ReadPostCollection(path, col string) []mod.Post {
 		}
 		posts = append(posts, p)
 	}
-	//switch col {
-	//case "pages":
-	//	pages := make(map[string]interface{})
-	//	for _, p := range posts {
-	//		pages[p["Slug"]] = p
-	//	}
-	//	out = pages
-	//default:
-	//	out = posts
-	//}
 	return posts
 }

@@ -8,9 +8,10 @@ import (
 )
 
 type Host struct {
-	Name string
-	Slug string
-	Host string
+	Name     string
+	Slug     string
+	Host     string
+	Template string
 	//Routes func(r *mux.Router)
 }
 
@@ -22,7 +23,7 @@ func (o *OKNO) GetHosts() map[string]Host {
 }
 
 func (h *Host) testRoutes(r *mux.Router) {
-	s := h.sub(r)
+	s := h.domain(r)
 	s.Host(h.Host).Path("/").HandlerFunc(
 		func(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusOK)
@@ -30,7 +31,11 @@ func (h *Host) testRoutes(r *mux.Router) {
 		})
 }
 
-func (h *Host) sub(r *mux.Router) *mux.Router {
+func (h *Host) domain(r *mux.Router) *mux.Router {
 	s := r.Host(h.Host).Subrouter()
+	return s
+}
+func (h *Host) sub(r *mux.Router) *mux.Router {
+	s := r.Host("{site}." + h.Host).Subrouter()
 	return s
 }

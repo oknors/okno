@@ -120,7 +120,7 @@ func ReadAllCoins() Coins {
 		}
 		//cs[i].Logo = LoadLogo(cs[i].Slug, "img32")
 		//cs[i].Link = new(p9.Clickable)
-		fmt.Println("ccb", ccb)
+		//fmt.Println("ccb", ccb)
 
 		csb.C = append(csb.C, ccb)
 	}

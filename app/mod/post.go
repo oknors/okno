@@ -19,9 +19,11 @@ type Post struct {
 	Slug           string
 	IsDraft        bool
 	Published      bool
+	Active         bool
 	ItemType       string
 	Template       string
 	Order          int
+	Author         string
 	CreatedAt      time.Time
 	UpdatedAt      time.Time
 }

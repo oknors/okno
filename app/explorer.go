@@ -15,7 +15,7 @@ func (o *OKNO) explorer(r *mux.Router) {
 	s.StrictSlash(true)
 	s.HandleFunc("/", o.explorerIndex)
 	s.HandleFunc("/{section}", o.explorerSection)
-	s.HandleFunc("/{type}/{slug}", o.explorerItem)
+	s.HandleFunc("/{section}/{slug}", o.explorerItem)
 }
 
 // HomeHandler handles a request for (?)
