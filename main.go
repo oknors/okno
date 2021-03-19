@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/oknors/okno/app"
-	"github.com/oknors/okno/appOLD/models/jorm/c"
+	"github.com/oknors/okno/app/cfg"
+	"github.com/oknors/okno/app/jorm/c"
 	"log"
 	"time"
 )
@@ -11,7 +12,7 @@ import (
 func main() {
 	okno := app.NewOKNO()
 	coins := c.ReadAllCoins()
-	ticker := time.NewTicker(5 * time.Second)
+	ticker := time.NewTicker(99 * time.Second)
 	quit := make(chan struct{})
 	go func() {
 		for {
@@ -26,7 +27,7 @@ func main() {
 		}
 	}()
 	//log.Fatal(srv.ListenAndServeTLS("./cfg/server.pem", "./cfg/server.key"))
-	fmt.Println("Listening on port: ", okno.Configuration.AppPort)
+	fmt.Println("Listening on port: ", cfg.CONFIG.Port)
 	log.Fatal(okno.Server.ListenAndServe())
 	// port := 9898
 	// fmt.Println("Listening on port:", port)

@@ -34,16 +34,13 @@ func GetJSON(completeURL string) (interface{}, error) {
 
 // GetIMG loads a logo from the database and generates the various sized
 // icons from it
-func GetIMG(url string) (Images, error) {
+func GetIMG(url, path, coin string) Images{
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Problem Insert", err)
 	}
 	defer resp.Body.Close()
 	content, err := ioutil.ReadAll(resp.Body)
-	//fmt.Println("encodedencodedencodedencodedencoded", encoded)
-	// encoded := base64.StdEncoding.EncodeToString(content)
-
 	img16, _ := imageResize(content, options{Width: 16, Height: 16})
 	img32, _ := imageResize(content, options{Width: 32, Height: 32})
 	img64, _ := imageResize(content, options{Width: 64, Height: 64})
@@ -56,6 +53,11 @@ func GetIMG(url string) (Images, error) {
 		Img128: base64.StdEncoding.EncodeToString(img128),
 		Img256: base64.StdEncoding.EncodeToString(img256),
 	}
-
-	return imgs, nil
+	//Create a empty file
+	ioutil.WriteFile(path+"/"+ coin +"16.png", img16, 777)
+	ioutil.WriteFile(path+"/"+ coin +"32.png", img32, 777)
+	ioutil.WriteFile(path+"/"+ coin +"64.png", img64, 777)
+	ioutil.WriteFile(path+"/"+ coin +"128.png", img128, 777)
+	ioutil.WriteFile(path+"/"+ coin +"256.png", img256, 777)
+	return imgs
 }

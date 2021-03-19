@@ -1,9 +1,9 @@
 package app
 
 import (
-	"fmt"
-	"github.com/oknors/okno/app/config"
+	"github.com/oknors/okno/app/cfg"
 	"github.com/oknors/okno/app/jdb"
+	//csrc "github.com/oknors/okno/app/jorm/c/src"
 	"github.com/oknors/okno/pkg/utl"
 	"net/http"
 	"time"
@@ -19,30 +19,22 @@ const (
 )
 
 func NewOKNO() *OKNO {
-	conf, err := config.GetConfiguration()
-	if err != nil {
-		fmt.Println("Error", err)
-	}
-	j, err := jdb.NewJDB(conf.Path, nil)
-	if err != nil {
-		utl.ErrorLog(err)
-	}
+	//jdb.JDB.Write("conf", "conf", cfg.CONFIG)
+	err := jdb.JDB.Read("conf", "conf", &cfg.CONFIG)
+	utl.ErrorLog(err)
+
+	//go csrc.GetCoinSources()
+
+	//fmt.Println(":ajdeeeeee", cfg.CONFIG)
+	//go u.CloudFlare()
 	o := &OKNO{
-		Configuration: &conf,
-		Database:      j,
+
 	}
 	o.Hosts = o.GetHosts()
 
 	srv := &http.Server{
-		//Handler: o.Handlers(),
-		//Handler: interceptHandler(o.Handlers(), defaultErrorHandler),
-		//Handler: interceptHandler(o.Handlers(), defaultErrorHandler),
 		Handler: o.Handler(),
-		//Handler: handlers.CORS()(handlers.CompressHandler(o.Handler())),
-		//Handler: cacheHandler(handlers.CORS()(handlers.CompressHandler(r))),
-		// Handler: handlers.CompressHandler(r),
-		Addr: ":" + conf.AppPort,
-		// Good practice: enforce timeouts for servers you create!
+		Addr: ":" + cfg.CONFIG.Port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

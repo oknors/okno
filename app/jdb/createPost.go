@@ -9,7 +9,7 @@ import (
 )
 
 // Create appends post path prefix for a database write
-func (j *JDB) CreatePostHandler(w http.ResponseWriter, r *http.Request) {
+func  CreatePostHandler(w http.ResponseWriter, r *http.Request) {
 	path := mux.Vars(r)["host"]
 	col := mux.Vars(r)["col"]
 	id := mux.Vars(r)["slug"]
@@ -23,14 +23,14 @@ func (j *JDB) CreatePostHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		// Handle error
 	}
-	j.Write(path+"/"+col, id, post)
+	JDB.Write(path+"/"+col, id, post)
 
 }
 
 var decoder = schema.NewDecoder()
 
 // Change host of JDB
-func (j *JDB) Host(h string) *JDB {
-	j.path = h
-	return j
+func  Host(h string) *jdb {
+	JDB.path = h
+	return JDB
 }

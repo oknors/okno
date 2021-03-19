@@ -3,6 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/oknors/okno/app/jdb"
 	"github.com/oknors/okno/pkg/utl"
 	"net/http"
 )
@@ -12,12 +13,18 @@ type Host struct {
 	Slug     string
 	Host     string
 	Template string
+	Subs     map[string]Sub
 	//Routes func(r *mux.Router)
+}
+type Sub struct {
+	Name     string
+	Slug     string
+	Template string
 }
 
 func (o *OKNO) GetHosts() map[string]Host {
 	hosts := make(map[string]Host)
-	err := o.Database.Read("conf", "hosts", &hosts)
+	err := jdb.JDB.Read("conf", "hosts", &hosts)
 	utl.ErrorLog(err)
 	return hosts
 }

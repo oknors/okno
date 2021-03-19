@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/oknors/okno/app/jdb"
 	"github.com/oknors/okno/app/mod"
 	"github.com/oknors/okno/pkg/utl"
 	"net/http"
@@ -56,7 +57,7 @@ func (o *OKNO) viewPosts(w http.ResponseWriter, r *http.Request) {
 
 	posts := Posts{}
 
-	postsRaw, err := o.Database.ReadAll("/sites/" + site + "/jdb/" + col)
+	postsRaw, err := jdb.JDB.ReadAll("sites/" + site + "/jdb/" + col)
 	utl.ErrorLog(err)
 	for _, postInterface := range postsRaw {
 		var rawPost mod.Post
@@ -69,7 +70,7 @@ func (o *OKNO) viewPosts(w http.ResponseWriter, r *http.Request) {
 				Slug:    rawPost.Slug,
 				Date:    rawPost.CreatedAt,
 				Order:   rawPost.Order,
-				Excerpt: truncate(rawPost.Content, trn),
+				Excerpt: utl.Truncate(rawPost.Content, trn),
 			}
 			posts = append(posts, p)
 		}
@@ -97,7 +98,7 @@ func (o *OKNO) viewAllPosts(w http.ResponseWriter, r *http.Request) {
 
 	posts := mod.Posts{}
 
-	postsRaw, err := o.Database.ReadAll("/sites/" + site + "/jdb/" + col)
+	postsRaw, err := jdb.JDB.ReadAll("sites/" + site + "/jdb/" + col)
 	utl.ErrorLog(err)
 	for _, postInterface := range postsRaw {
 		var rawPost mod.Post
@@ -121,7 +122,8 @@ func (o *OKNO) viewPost(w http.ResponseWriter, r *http.Request) {
 	site := mux.Vars(r)["site"]
 	col := mux.Vars(r)["col"]
 	id := mux.Vars(r)["id"]
-	post := o.Database.ReadPost("/sites/"+site+"/jdb", col, id)
+	post := mod.Post{}
+	err := jdb.JDB.Read("sites/"+site+"/jdb/"+col, id, &post)
 	out, err := json.Marshal(post)
 	if err != nil {
 		fmt.Println("Error encoding JSON")

@@ -6,6 +6,9 @@ import (
 	"github.com/gofrs/uuid"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/schema"
+	"github.com/oknors/okno/app/cfg"
+	"github.com/oknors/okno/app/jdb"
+	"github.com/oknors/okno/app/jorm/c"
 	"github.com/oknors/okno/app/mod"
 	"github.com/oknors/okno/app/tpl"
 	"github.com/oknors/okno/pkg/utl"
@@ -20,12 +23,14 @@ func (o *OKNO) oknoAdmin(r *mux.Router) {
 	okno := r.Host("admin.okno.rs").Subrouter()
 	okno.HandleFunc("/", o.indexAdmin).Methods("GET")
 	okno.HandleFunc("/hosts", o.readHosts).Methods("GET")
+	okno.HandleFunc("/coins", o.viewCoins).Methods("GET")
+	okno.HandleFunc("/coins/all", o.readCoins).Methods("GET")
 	okno.HandleFunc("/{site}/{col}/list", o.listAdmin).Methods("GET")
 	okno.HandleFunc("/{site}/config}", o.configAdmin).Methods("GET")
 	okno.HandleFunc("/{site}/create", o.createAdmin).Methods("GET")
 	okno.HandleFunc("/{site}/{col}/edit/{slug}", o.editAdmin).Methods("GET")
 	okno.HandleFunc("/{site}/{col}/write", o.writeAdmin).Methods("POST")
-	okno.StrictSlash(true).PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(o.Configuration.Path+"/admin/static"))))
+	okno.StrictSlash(true).PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(cfg.Path+"/admin/static"))))
 }
 
 // HomeHandler handles a request for (?)
@@ -35,13 +40,13 @@ func (o *OKNO) indexAdmin(w http.ResponseWriter, r *http.Request) {
 		Hosts: o.hosts(),
 	}
 	fmt.Println("Index")
-	tpl.TemplateHandler(o.Configuration.Path+"/admin").ExecuteTemplate(w, "index_gohtml", data)
+	tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "index_gohtml", data)
 }
 
 // HomeHandler handles a request for (?)
 func (o *OKNO) listAdmin(w http.ResponseWriter, r *http.Request) {
 	var posts []mod.Post
-	postsRaw, err := o.Database.ReadAll("sites/" + mux.Vars(r)["site"] + "/jdb/" + mux.Vars(r)["col"])
+	postsRaw, err := jdb.JDB.ReadAll("sites/" + mux.Vars(r)["site"] + "/jdb/" + mux.Vars(r)["col"])
 	utl.ErrorLog(err)
 	for _, postInterface := range postsRaw {
 		var p mod.Post
@@ -55,7 +60,7 @@ func (o *OKNO) listAdmin(w http.ResponseWriter, r *http.Request) {
 		Posts: posts,
 	}
 	fmt.Println("List posts", mux.Vars(r)["site"])
-	tpl.TemplateHandler(o.Configuration.Path+"/admin").ExecuteTemplate(w, "list_gohtml", data)
+	tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "list_gohtml", data)
 }
 
 // HomeHandler handles a request for (?)
@@ -64,7 +69,7 @@ func (o *OKNO) createAdmin(w http.ResponseWriter, r *http.Request) {
 		Host:  o.Hosts[mux.Vars(r)["site"]],
 		Hosts: o.hosts(),
 	}
-	tpl.TemplateHandler(o.Configuration.Path+"/admin").ExecuteTemplate(w, "editpost_gohtml", data)
+	tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "editpost_gohtml", data)
 }
 
 // HomeHandler handles a request for (?)
@@ -73,7 +78,7 @@ func (o *OKNO) configAdmin(w http.ResponseWriter, r *http.Request) {
 		Host:  o.Hosts[mux.Vars(r)["site"]],
 		Hosts: o.hosts(),
 	}
-	tpl.TemplateHandler(o.Configuration.Path+"/admin").ExecuteTemplate(w, "config_gohtml", data)
+	tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "config_gohtml", data)
 }
 
 func (o *OKNO) hosts() (hosts []Host) {
@@ -84,7 +89,7 @@ func (o *OKNO) hosts() (hosts []Host) {
 }
 
 func (o *OKNO) posts(path string) (posts mod.Posts) {
-	postsRaw, err := o.Database.ReadAll(path)
+	postsRaw, err := jdb.JDB.ReadAll(path)
 	utl.ErrorLog(err)
 	for _, postInterface := range postsRaw {
 		var p mod.Post
@@ -101,14 +106,14 @@ func (o *OKNO) posts(path string) (posts mod.Posts) {
 // HomeHandler handles a request for (?)
 func (o *OKNO) editAdmin(w http.ResponseWriter, r *http.Request) {
 	post := mod.Post{}
-	err := o.Database.Read("sites/"+mux.Vars(r)["site"]+"/jdb/"+mux.Vars(r)["col"], mux.Vars(r)["slug"], &post)
+	err := jdb.JDB.Read("sites/"+mux.Vars(r)["site"]+"/jdb/"+mux.Vars(r)["col"], mux.Vars(r)["slug"], &post)
 	utl.ErrorLog(err)
 	data := &PageData{
 		Host:  o.Hosts[mux.Vars(r)["site"]],
 		Hosts: o.hosts(),
 		Post:  post,
 	}
-	tpl.TemplateHandler(o.Configuration.Path+"/admin").ExecuteTemplate(w, "editpost_gohtml", data)
+	tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "editpost_gohtml", data)
 	fmt.Println("Read", post.Title)
 }
 
@@ -127,7 +132,7 @@ func (o *OKNO) writeAdmin(w http.ResponseWriter, r *http.Request) {
 	if post.Slug == "" {
 		post.Slug = utl.MakeSlug(post.Title)
 	}
-	utl.ErrorLog(o.Database.Write("/sites/"+mux.Vars(r)["site"]+"/jdb/"+mux.Vars(r)["col"], post.Slug, post))
+	utl.ErrorLog(jdb.JDB.Write("/sites/"+mux.Vars(r)["site"]+"/jdb/"+mux.Vars(r)["col"], post.Slug, post))
 	fmt.Println("Write", post.Title)
 	fmt.Println("Write", post.Order)
 	fmt.Println("Write", post)
@@ -143,6 +148,20 @@ func (o *OKNO) readHosts(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 	}
 	fmt.Println("Hosts", o.Hosts)
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(js)
+}
+
+func (o *OKNO) viewCoins(w http.ResponseWriter, r *http.Request) {
+	data := map[string]interface{}{
+		"coins": c.LoadCoinsBase(false),
+		}
+		tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "coins_gohtml", data)
+}
+
+func (o *OKNO) readCoins(w http.ResponseWriter, r *http.Request) {
+	js, err := json.Marshal(c.LoadCoinsBase(false))
+	utl.ErrorLog(err)
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(js)
 }

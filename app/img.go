@@ -3,6 +3,7 @@ package app
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/oknors/okno/app/cfg"
 	"net/http"
 	"os"
 	"os/exec"
@@ -34,9 +35,10 @@ func (o *OKNO) img(r *mux.Router) {
 	//a.Headers("Access-Control-Allow-Origin", "*")
 }
 
+
 func (o *OKNO) viewWebImg(w http.ResponseWriter, r *http.Request) {
 	url := strings.TrimSpace(r.URL.Query().Get("url"))
-	path := o.Configuration.Path + "/static/img"
+	path := cfg.Path + "/static/img"
 	_, err := os.Stat(path + "/" + url)
 	if err != nil {
 		fmt.Println(path + "/" + url)

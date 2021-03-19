@@ -2,7 +2,7 @@ package app
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/oknors/okno/appOLD/models/jorm/h"
+	"github.com/oknors/okno/app/jorm/h"
 )
 
 func (o *OKNO) jorm(r *mux.Router) {
@@ -14,9 +14,9 @@ func (o *OKNO) jorm(r *mux.Router) {
 
 	s.HandleFunc("/", h.HomeHandler)
 
-	f := s.PathPrefix("/f").Subrouter()
-	f.HandleFunc("/addcoin", h.AddCoinHandler).Methods("POST")
-	f.HandleFunc("/addnode", h.AddNodeHandler).Methods("POST")
+	//f := s.PathPrefix("/f").Subrouter()
+	//f.HandleFunc("/addcoin", h.AddCoinHandler).Methods("POST")
+	//f.HandleFunc("/addnode", h.AddNodeHandler).Methods("POST")
 
 	a := s.PathPrefix("/a").Subrouter()
 	a.HandleFunc("/coins", h.CoinsHandler).Methods("GET")

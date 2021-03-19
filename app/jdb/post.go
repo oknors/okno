@@ -19,3 +19,11 @@ func render(w http.ResponseWriter, p interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(js)
 }
+
+
+
+
+
+
+
+
