@@ -12,7 +12,7 @@ var clients = make(map[*websocket.Conn]bool)
 var broadcast = make(chan Message)
 
 // Upgrader will allow us to turn a normal http connection into a WebSocket
-var upgrader = websocket.Upgrader{
+var upgraderChat = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
@@ -32,7 +32,7 @@ func (o *OKNO) chat(rt *mux.Router) {
 			site := mux.Vars(r)["site"]
 			if site == "chat" {
 				// Upgrade http request to WebSocket
-				ws, err := upgrader.Upgrade(w, r, nil)
+				ws, err := upgraderChat.Upgrade(w, r, nil)
 				if err != nil {
 					log.Fatal(err)
 				}

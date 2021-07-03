@@ -8,7 +8,6 @@ import (
 	"github.com/gorilla/schema"
 	"github.com/oknors/okno/app/cfg"
 	"github.com/oknors/okno/app/jdb"
-	"github.com/oknors/okno/app/jorm/c"
 	"github.com/oknors/okno/app/mod"
 	"github.com/oknors/okno/app/tpl"
 	"github.com/oknors/okno/pkg/utl"
@@ -23,8 +22,8 @@ func (o *OKNO) oknoAdmin(r *mux.Router) {
 	okno := r.Host("admin.okno.rs").Subrouter()
 	okno.HandleFunc("/", o.indexAdmin).Methods("GET")
 	okno.HandleFunc("/hosts", o.readHosts).Methods("GET")
-	okno.HandleFunc("/coins", o.viewCoins).Methods("GET")
-	okno.HandleFunc("/coins/all", o.readCoins).Methods("GET")
+	//okno.HandleFunc("/coins", o.viewCoins).Methods("GET")
+	//okno.HandleFunc("/coins/all", o.readCoins).Methods("GET")
 	okno.HandleFunc("/{site}/{col}/list", o.listAdmin).Methods("GET")
 	okno.HandleFunc("/{site}/config}", o.configAdmin).Methods("GET")
 	okno.HandleFunc("/{site}/create", o.createAdmin).Methods("GET")
@@ -35,6 +34,8 @@ func (o *OKNO) oknoAdmin(r *mux.Router) {
 
 // HomeHandler handles a request for (?)
 func (o *OKNO) indexAdmin(w http.ResponseWriter, r *http.Request) {
+	o.GetParallelCoin()
+
 	data := &PageData{
 		Host:  o.Hosts["okno_rs"],
 		Hosts: o.hosts(),
@@ -54,6 +55,10 @@ func (o *OKNO) listAdmin(w http.ResponseWriter, r *http.Request) {
 		utl.ErrorLog(err)
 		posts = append(posts, p)
 	}
+
+	fmt.Println("o.Hosts", o.Hosts)
+	fmt.Println("o.Hosts", o.Hosts[mux.Vars(r)["site"]])
+	fmt.Println("o.Site", mux.Vars(r)["site"])
 	data := &PageData{
 		Host:  o.Hosts[mux.Vars(r)["site"]],
 		Hosts: o.hosts(),
@@ -108,6 +113,7 @@ func (o *OKNO) editAdmin(w http.ResponseWriter, r *http.Request) {
 	post := mod.Post{}
 	err := jdb.JDB.Read("sites/"+mux.Vars(r)["site"]+"/jdb/"+mux.Vars(r)["col"], mux.Vars(r)["slug"], &post)
 	utl.ErrorLog(err)
+
 	data := &PageData{
 		Host:  o.Hosts[mux.Vars(r)["site"]],
 		Hosts: o.hosts(),
@@ -132,18 +138,13 @@ func (o *OKNO) writeAdmin(w http.ResponseWriter, r *http.Request) {
 	if post.Slug == "" {
 		post.Slug = utl.MakeSlug(post.Title)
 	}
+
 	utl.ErrorLog(jdb.JDB.Write("/sites/"+mux.Vars(r)["site"]+"/jdb/"+mux.Vars(r)["col"], post.Slug, post))
 	fmt.Println("Write", post.Title)
 	fmt.Println("Write", post.Order)
-	fmt.Println("Write", post)
 }
 
 func (o *OKNO) readHosts(w http.ResponseWriter, r *http.Request) {
-	o.Hosts["log.parallelcoin.info"] = Host{
-		Name: "ParallelCoin Starlog",
-		Slug: "log_parallelcoin_info",
-		Host: "log.parallelcoin.info",
-	}
 	js, err := json.Marshal(o.Hosts)
 	if err != nil {
 	}
@@ -151,17 +152,17 @@ func (o *OKNO) readHosts(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(js)
 }
-
-func (o *OKNO) viewCoins(w http.ResponseWriter, r *http.Request) {
-	data := map[string]interface{}{
-		"coins": c.LoadCoinsBase(false),
-		}
-		tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "coins_gohtml", data)
-}
-
-func (o *OKNO) readCoins(w http.ResponseWriter, r *http.Request) {
-	js, err := json.Marshal(c.LoadCoinsBase(false))
-	utl.ErrorLog(err)
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
-}
+//
+//func (o *OKNO) viewCoins(w http.ResponseWriter, r *http.Request) {
+//	data := map[string]interface{}{
+//		"coins": coin.LoadCoinsBase(false, false),
+//	}
+//	tpl.TemplateHandler(cfg.Path+"/admin").ExecuteTemplate(w, "coins_gohtml", data)
+//}
+//
+//func (o *OKNO) readCoins(w http.ResponseWriter, r *http.Request) {
+//	js, err := json.Marshal(coin.LoadCoinsBase(false, false))
+//	utl.ErrorLog(err)
+//	w.Header().Set("Content-Type", "application/json")
+//	w.Write(js)
+//}

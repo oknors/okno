@@ -19,22 +19,18 @@ const (
 )
 
 func NewOKNO() *OKNO {
-	//jdb.JDB.Write("conf", "conf", cfg.CONFIG)
 	err := jdb.JDB.Read("conf", "conf", &cfg.CONFIG)
 	utl.ErrorLog(err)
-
 	//go csrc.GetCoinSources()
-
 	//fmt.Println(":ajdeeeeee", cfg.CONFIG)
 	//go u.CloudFlare()
 	o := &OKNO{
 
 	}
 	o.Hosts = o.GetHosts()
-
 	srv := &http.Server{
-		Handler: o.Handler(),
-		Addr: ":" + cfg.CONFIG.Port,
+		Handler:      o.Handler(),
+		Addr:         ":" + cfg.CONFIG.Port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

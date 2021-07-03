@@ -27,14 +27,13 @@ type PageData struct {
 
 func (o *OKNO) Handler() http.Handler {
 	r := mux.NewRouter()
-
 	for _, h := range o.Hosts {
-		dh := h.domain(r)
-		o.index(dh, h)
+		//dh := h.domain(r)
+		//o.index(dh, h)
 		//o.section(dh, h)
-		o.post(dh, h)
+		//o.post(dh, h)
 		//o.staticHost(dh, h.Slug)
-		if h.Slug != "okno_rs" && h.Slug != "marcetin_com" {
+		//if h.Slug != "okno_rs" && h.Slug != "marcetin_com" {
 			sh := h.sub(r)
 			o.index(sh, h)
 			//o.section(sh, h)
@@ -43,17 +42,15 @@ func (o *OKNO) Handler() http.Handler {
 			//if h.Template != "parallelcoin" {
 			//	o.chat(sh)
 			//}
-		}
+		//}
 	}
 	o.oknoAdmin(r)
 	o.static(r)
 	o.templates(r)
-
+	//o.sendmail(r)
 	o.api(r)
 	o.img(r)
 	o.out(r)
-	o.jorm(r)
-	o.our(r)
 	o.wing(r)
 	return handlers.CORS()(handlers.CompressHandler(InterceptHandler(r, DefaultErrorHandler)))
 }
@@ -67,11 +64,11 @@ func (o *OKNO) index(rt *mux.Router, host Host) {
 		section := "index"
 		template := site
 		if site != "" {
-			title = site + " " + host.Name
 			hostSlug = site + "_" + host.Slug
 			section = site
 		} else {
 			site = hostSlug
+			template = "index"
 		}
 		data := &PageData{
 			Title:    title,
@@ -90,15 +87,13 @@ func (o *OKNO) section(rt *mux.Router, host Host) {
 	rt.HandleFunc("/{section}", func(w http.ResponseWriter, r *http.Request) {
 		site := mux.Vars(r)["site"]
 		section := mux.Vars(r)["section"]
-		title := host.Name
 		hostSlug := host.Slug
 		template := site + "/" + section
 		if site != "" {
-			title = site + " " + host.Name
 			hostSlug = site + "_" + host.Slug
 		}
 		data := &PageData{
-			Title:   title,
+			Title:   host.Name,
 			Host:    host,
 			Site:    hostSlug,
 			Section: section,
@@ -123,6 +118,7 @@ func (o *OKNO) post(rt *mux.Router, host Host) {
 		}
 		//post := o.Database.ReadPost("/sites/"+ hostSlug +"/jdb", section, id)
 		data := &PageData{
+			Title:   host.Name,
 			Host:     host,
 			HostSlug: hostSlug,
 			Site:     site,
@@ -181,3 +177,5 @@ func (o *OKNO) staticHost(r *mux.Router, host string) {
 	r.Headers("Access-Control-Allow-Origin", "*")
 
 }
+
+

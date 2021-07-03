@@ -1,10 +1,10 @@
 package mod
 
 import (
+	blackfriday "github.com/russross/blackfriday/v2"
 	"html/template"
 	"time"
 
-	"github.com/russross/blackfriday/v2"
 	stripmd "github.com/writeas/go-strip-markdown"
 )
 
@@ -15,6 +15,7 @@ type Post struct {
 	Taxonomies     map[string]Taxonomy
 	Content        string
 	ContentPreview string
+	Thumbnail      string
 	CustomFields   map[string]interface{}
 	Slug           string
 	IsDraft        bool
