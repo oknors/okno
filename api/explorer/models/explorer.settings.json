@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "explorers",
+  "info": {
+    "name": "Explorer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "status": {
+      "type": "json"
+    },
+    "coin": {
+      "model": "coin"
+    }
+  }
+}

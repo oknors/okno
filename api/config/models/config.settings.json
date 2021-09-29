@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "configuration",
+  "info": {
+    "name": "config",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "comhttp": {
+      "type": "json",
+      "required": true
+    },
+    "cloudflare": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.cloudflare",
+      "required": true
+    },
+    "apikeys": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.apikeys"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.jdbs"
+    }
+  }
+}

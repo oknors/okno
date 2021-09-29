@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_services_servers",
+  "info": {
+    "name": "server",
+    "icon": "hand-holding"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

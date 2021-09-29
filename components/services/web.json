@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_services_webs",
+  "info": {
+    "name": "web",
+    "icon": "hanukiah"
+  },
+  "options": {},
+  "attributes": {
+    "domain": {
+      "type": "string"
+    }
+  }
+}

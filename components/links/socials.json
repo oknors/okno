@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_links_socials",
+  "info": {
+    "name": "socials",
+    "icon": "otter"
+  },
+  "options": {},
+  "attributes": {
+    "twitter": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "telegram": {
+      "type": "string"
+    },
+    "reddit": {
+      "type": "string"
+    }
+  }
+}

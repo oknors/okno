@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servers",
+  "info": {
+    "name": "Server",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "hostname": {
+      "type": "richtext"
+    },
+    "ip": {
+      "type": "string",
+      "required": true
+    },
+    "zerotier": {
+      "type": "string"
+    },
+    "tailscale": {
+      "type": "string"
+    },
+    "os": {
+      "type": "enumeration",
+      "enum": [
+        "centos6",
+        "centos7",
+        "ubuntu16",
+        "ubuntu18",
+        "ubuntu20",
+        "freebsd12",
+        "freebsd13"
+      ]
+    },
+    "processor": {
+      "type": "decimal"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "addip": {
+      "type": "string"
+    },
+    "memory": {
+      "type": "integer"
+    },
+    "disk": {
+      "type": "integer"
+    },
+    "localip": {
+      "type": "string"
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "novisad",
+        "vilnius"
+      ]
+    }
+  }
+}

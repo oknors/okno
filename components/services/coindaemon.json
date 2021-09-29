@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_services_coindaemons",
+  "info": {
+    "name": "coindaemon",
+    "icon": "microchip"
+  },
+  "options": {},
+  "attributes": {
+    "node": {
+      "model": "node"
+    }
+  }
+}

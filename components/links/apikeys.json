@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_links_apikeys",
+  "info": {
+    "name": "apikeys",
+    "icon": "key"
+  },
+  "options": {},
+  "attributes": {
+    "provider": {
+      "type": "string"
+    },
+    "key": {
+      "type": "password"
+    }
+  }
+}

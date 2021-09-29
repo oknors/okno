@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "name": "service",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "service": {
+      "type": "dynamiczone",
+      "components": [
+        "services.coindaemon",
+        "services.web",
+        "services.server",
+        "services.jorm",
+        "services.explorer"
+      ],
+      "required": true
+    }
+  }
+}

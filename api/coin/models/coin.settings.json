@@ -1,0 +1,122 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coins",
+  "info": {
+    "name": "Coin",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true,
+    "previewable": true,
+    "cloneable": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "symbol": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "chat": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    },
+    "source": {
+      "type": "string"
+    },
+    "whitepaper": {
+      "type": "string"
+    },
+    "bitcointalk": {
+      "type": "string"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.socials",
+      "required": false
+    },
+    "favorite": {
+      "type": "boolean"
+    },
+    "ico": {
+      "type": "boolean"
+    },
+    "algo": {
+      "type": "string"
+    },
+    "proof": {
+      "type": "string"
+    },
+    "buildon": {
+      "model": "coin"
+    },
+    "genesis": {
+      "type": "datetime"
+    },
+    "hashrate": {
+      "type": "float"
+    },
+    "supply": {
+      "type": "float"
+    },
+    "mined": {
+      "type": "float"
+    },
+    "blockheight": {
+      "type": "integer"
+    },
+    "blocktime": {
+      "type": "integer"
+    },
+    "difficulty": {
+      "type": "float"
+    },
+    "difficultyadjustment": {
+      "type": "string"
+    },
+    "blockreward": {
+      "type": "float"
+    },
+    "blockrewardreduction": {
+      "type": "string"
+    },
+    "logobase64": {
+      "type": "json"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "website": {
+      "model": "link"
+    },
+    "links": {
+      "collection": "link"
+    }
+  }
+}

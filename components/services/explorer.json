@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_services_explorers",
+  "info": {
+    "name": "explorer",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "explorer": {
+      "model": "explorer"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_services_jorms",
+  "info": {
+    "name": "jorm",
+    "icon": "redo-alt"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

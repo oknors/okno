@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_links_cloudflares",
+  "info": {
+    "name": "cloudflare",
+    "icon": "ambulance"
+  },
+  "options": {},
+  "attributes": {
+    "api": {
+      "type": "string",
+      "required": false
+    },
+    "email": {
+      "type": "email"
+    },
+    "key": {
+      "type": "password"
+    },
+    "token": {
+      "type": "password"
+    }
+  }
+}
