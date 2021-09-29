@@ -15,7 +15,7 @@
     "page-builder": "^0.0.0",
     "react-walk": "^0.0.3",
     "sass": "^1.39.0",
-    "sqlite3": "5.0.0",
+    "sqlite3": "5.0.2",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-bookshelf": "3.6.8",
