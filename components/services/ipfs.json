@@ -1,0 +1,15 @@
+{
+  "collectionName": "ipfs",
+  "info": {
+    "name": "ipfs",
+    "icon": "grip-vertical"
+  },
+  "options": {},
+  "attributes": {
+    "pub": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

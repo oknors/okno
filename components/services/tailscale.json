@@ -1,0 +1,13 @@
+{
+  "collectionName": "ts",
+  "info": {
+    "name": "tailscale",
+    "icon": "network-wired"
+  },
+  "options": {},
+  "attributes": {
+    "ip": {
+      "model": "ip"
+    }
+  }
+}

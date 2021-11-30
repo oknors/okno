@@ -610,6 +610,59 @@
           "affiliate": {
             "type": "string"
           },
+          "api": {
+            "required": [
+              "id",
+              "title",
+              "slug",
+              "url",
+              "commands"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "url": {
+                "type": "string"
+              },
+              "commands": {
+                "type": "dynamiczone"
+              },
+              "coin": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "web": {
+                "type": "string"
+              },
+              "urlformat": {
+                "type": "string",
+                "enum": [
+                  "endpoint_command",
+                  "endpoint_coin_command",
+                  "endpoint_command_coin",
+                  "endpoint_symbol_command"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -642,6 +695,9 @@
                   "type": "object"
                 },
                 "affiliate": {
+                  "type": "string"
+                },
+                "api": {
                   "type": "string"
                 },
                 "localizations": {
@@ -697,6 +753,9 @@
             "type": "object"
           },
           "affiliate": {
+            "type": "string"
+          },
+          "api": {
             "type": "string"
           },
           "localizations": {

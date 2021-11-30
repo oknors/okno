@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dns",
+  "info": {
+    "name": "domain"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sub": {
+      "type": "string",
+      "required": false,
+      "maxLength": 63,
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 63,
+      "minLength": 1
+    },
+    "tld": {
+      "type": "string",
+      "unique": false,
+      "required": true,
+      "maxLength": 63,
+      "minLength": 1
+    },
+    "ip": {
+      "model": "ip"
+    }
+  }
+}

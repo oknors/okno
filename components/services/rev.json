@@ -1,0 +1,24 @@
+{
+  "collectionName": "revs",
+  "info": {
+    "name": "reverse",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "src": {
+      "model": "domain"
+    },
+    "port": {
+      "type": "integer",
+      "required": true,
+      "min": 80,
+      "max": 22333,
+      "default": 80
+    },
+    "destination": {
+      "model": "domain"
+    }
+  }
+}

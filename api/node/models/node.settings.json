@@ -15,6 +15,10 @@
     "ip": {
       "type": "string",
       "required": true
+    },
+    "coin": {
+      "model": "coin",
+      "via": "nodes"
     }
   }
 }

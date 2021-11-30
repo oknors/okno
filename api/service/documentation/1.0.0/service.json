@@ -519,7 +519,8 @@
           "id",
           "name",
           "slug",
-          "service"
+          "service",
+          "port"
         ],
         "properties": {
           "id": {
@@ -544,7 +545,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -560,6 +564,9 @@
                           "type": "string"
                         },
                         "ip": {
+                          "type": "string"
+                        },
+                        "coin": {
                           "type": "string"
                         },
                         "published_at": {
@@ -587,18 +594,64 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
                       "type": "string"
                     },
-                    "domain": {
-                      "type": "string"
+                    "domains": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "name",
+                          "tld"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "sub": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "tld": {
+                            "type": "string"
+                          },
+                          "ip": {
+                            "type": "string"
+                          },
+                          "published_at": {
+                            "type": "string"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "type": {
+                      "type": "string",
+                      "default": "user",
+                      "enum": [
+                        "api",
+                        "admin",
+                        "user"
+                      ]
                     }
                   },
                   "required": [
-                    "id"
+                    "id",
+                    "type"
                   ]
                 },
                 {
@@ -610,7 +663,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -634,7 +690,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -658,7 +717,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -693,9 +755,260 @@
                   "required": [
                     "id"
                   ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ips": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "part1",
+                          "part2",
+                          "part3",
+                          "part4"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "part1": {
+                            "type": "integer"
+                          },
+                          "part2": {
+                            "type": "integer"
+                          },
+                          "part3": {
+                            "type": "integer"
+                          },
+                          "part4": {
+                            "type": "integer"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ip": {
+                      "required": [
+                        "id",
+                        "part1",
+                        "part2",
+                        "part3",
+                        "part4"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "part1": {
+                          "type": "integer"
+                        },
+                        "part2": {
+                          "type": "integer"
+                        },
+                        "part3": {
+                          "type": "integer"
+                        },
+                        "part4": {
+                          "type": "integer"
+                        },
+                        "created_by": {
+                          "type": "string"
+                        },
+                        "updated_by": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "pub": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "pub"
+                  ]
                 }
               ]
+            },
+            "minItems": 1,
+            "maxItems": 1
+          },
+          "server": {
+            "required": [
+              "id",
+              "name",
+              "ip",
+              "hostname",
+              "type"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "ip": {
+                "type": "string"
+              },
+              "zerotier": {
+                "type": "string"
+              },
+              "tailscale": {
+                "type": "string"
+              },
+              "os": {
+                "type": "string",
+                "enum": [
+                  "centos6",
+                  "centos7",
+                  "ubuntu16",
+                  "ubuntu18",
+                  "ubuntu20",
+                  "freebsd12",
+                  "freebsd13"
+                ]
+              },
+              "addip": {
+                "type": "string"
+              },
+              "localip": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string",
+                "enum": [
+                  "novisad",
+                  "vilnius"
+                ]
+              },
+              "hostname": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "dedicated",
+                  "vps"
+                ]
+              },
+              "services": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
             }
+          },
+          "port": {
+            "type": "integer"
+          },
+          "interval": {
+            "type": "integer",
+            "default": 60
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 5
+          },
+          "proto": {
+            "type": "string",
+            "default": "tcp",
+            "enum": [
+              "tcp",
+              "udp"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "default": "jorm",
+            "enum": [
+              "coin",
+              "status",
+              "jdb",
+              "jorm",
+              "explorer"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -707,7 +1020,8 @@
         "required": [
           "name",
           "slug",
-          "service"
+          "service",
+          "port"
         ],
         "properties": {
           "name": {
@@ -729,7 +1043,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -745,6 +1062,9 @@
                           "type": "string"
                         },
                         "ip": {
+                          "type": "string"
+                        },
+                        "coin": {
                           "type": "string"
                         },
                         "published_at": {
@@ -772,18 +1092,64 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
                       "type": "string"
                     },
-                    "domain": {
-                      "type": "string"
+                    "domains": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "name",
+                          "tld"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "sub": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "tld": {
+                            "type": "string"
+                          },
+                          "ip": {
+                            "type": "string"
+                          },
+                          "published_at": {
+                            "type": "string"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "type": {
+                      "type": "string",
+                      "default": "user",
+                      "enum": [
+                        "api",
+                        "admin",
+                        "user"
+                      ]
                     }
                   },
                   "required": [
-                    "id"
+                    "id",
+                    "type"
                   ]
                 },
                 {
@@ -795,7 +1161,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -819,7 +1188,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -843,7 +1215,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -878,9 +1253,184 @@
                   "required": [
                     "id"
                   ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ips": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "part1",
+                          "part2",
+                          "part3",
+                          "part4"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "part1": {
+                            "type": "integer"
+                          },
+                          "part2": {
+                            "type": "integer"
+                          },
+                          "part3": {
+                            "type": "integer"
+                          },
+                          "part4": {
+                            "type": "integer"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ip": {
+                      "required": [
+                        "id",
+                        "part1",
+                        "part2",
+                        "part3",
+                        "part4"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "part1": {
+                          "type": "integer"
+                        },
+                        "part2": {
+                          "type": "integer"
+                        },
+                        "part3": {
+                          "type": "integer"
+                        },
+                        "part4": {
+                          "type": "integer"
+                        },
+                        "created_by": {
+                          "type": "string"
+                        },
+                        "updated_by": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "pub": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "pub"
+                  ]
                 }
               ]
-            }
+            },
+            "minItems": 1,
+            "maxItems": 1
+          },
+          "server": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer"
+          },
+          "interval": {
+            "type": "integer",
+            "default": 60
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 5
+          },
+          "proto": {
+            "type": "string",
+            "default": "tcp",
+            "enum": [
+              "tcp",
+              "udp"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "default": "jorm",
+            "enum": [
+              "coin",
+              "status",
+              "jdb",
+              "jorm",
+              "explorer"
+            ]
           },
           "published_at": {
             "type": "string",

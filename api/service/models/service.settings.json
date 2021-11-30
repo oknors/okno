@@ -14,7 +14,8 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {}
     },
     "slug": {
       "type": "uid",
@@ -28,9 +29,52 @@
         "services.web",
         "services.server",
         "services.jorm",
-        "services.explorer"
+        "services.explorer",
+        "services.zerotier",
+        "services.tailscale",
+        "services.ipfs"
       ],
+      "required": true,
+      "pluginOptions": {},
+      "max": 1,
+      "min": 1
+    },
+    "server": {
+      "via": "services",
+      "model": "server"
+    },
+    "port": {
+      "pluginOptions": {},
+      "type": "integer",
       "required": true
+    },
+    "interval": {
+      "type": "integer",
+      "default": 60
+    },
+    "timeout": {
+      "type": "integer",
+      "default": 5
+    },
+    "proto": {
+      "type": "enumeration",
+      "enum": [
+        "tcp",
+        "udp"
+      ],
+      "required": false,
+      "default": "tcp"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "coin",
+        "status",
+        "jdb",
+        "jorm",
+        "explorer"
+      ],
+      "default": "jorm"
     }
   }
 }

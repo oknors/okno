@@ -526,6 +526,147 @@
           "ip": {
             "type": "string"
           },
+          "coin": {
+            "required": [
+              "id",
+              "name",
+              "slug",
+              "symbol",
+              "description",
+              "subdomain"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "whitepaper": {
+                "type": "string"
+              },
+              "bitcointalk": {
+                "type": "string"
+              },
+              "socials": {
+                "type": "component"
+              },
+              "favorite": {
+                "type": "boolean"
+              },
+              "ico": {
+                "type": "boolean"
+              },
+              "algo": {
+                "type": "string"
+              },
+              "proof": {
+                "type": "string"
+              },
+              "buildon": {
+                "type": "string"
+              },
+              "genesis": {
+                "type": "string"
+              },
+              "hashrate": {
+                "type": "number"
+              },
+              "supply": {
+                "type": "number"
+              },
+              "mined": {
+                "type": "number"
+              },
+              "blockheight": {
+                "type": "integer"
+              },
+              "blocktime": {
+                "type": "integer"
+              },
+              "difficulty": {
+                "type": "number"
+              },
+              "difficultyadjustment": {
+                "type": "string"
+              },
+              "blockreward": {
+                "type": "number"
+              },
+              "blockrewardreduction": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "subdomain": {
+                "type": "boolean"
+              },
+              "explorer": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "algorithms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -538,6 +679,9 @@
         ],
         "properties": {
           "ip": {
+            "type": "string"
+          },
+          "coin": {
             "type": "string"
           },
           "published_at": {

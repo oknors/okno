@@ -520,7 +520,8 @@
           "name",
           "slug",
           "symbol",
-          "description"
+          "description",
+          "subdomain"
         ],
         "properties": {
           "id": {
@@ -537,101 +538,6 @@
           },
           "description": {
             "type": "string"
-          },
-          "chat": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "url",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "logo": {
-                  "required": [
-                    "id",
-                    "name",
-                    "hash",
-                    "mime",
-                    "size",
-                    "url",
-                    "provider"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternativeText": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    },
-                    "width": {
-                      "type": "integer"
-                    },
-                    "height": {
-                      "type": "integer"
-                    },
-                    "formats": {
-                      "type": "object"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "ext": {
-                      "type": "string"
-                    },
-                    "mime": {
-                      "type": "string"
-                    },
-                    "size": {
-                      "type": "number"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "previewUrl": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "provider_metadata": {
-                      "type": "object"
-                    },
-                    "related": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
           },
           "source": {
             "type": "string"
@@ -683,7 +589,8 @@
               "name",
               "slug",
               "symbol",
-              "description"
+              "description",
+              "subdomain"
             ],
             "properties": {
               "id": {
@@ -700,9 +607,6 @@
               },
               "description": {
                 "type": "string"
-              },
-              "chat": {
-                "type": "component"
               },
               "source": {
                 "type": "string"
@@ -761,12 +665,6 @@
               "blockrewardreduction": {
                 "type": "string"
               },
-              "logobase64": {
-                "type": "object"
-              },
-              "logo": {
-                "type": "string"
-              },
               "website": {
                 "type": "string"
               },
@@ -775,6 +673,45 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "subdomain": {
+                "type": "boolean"
+              },
+              "explorer": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "algorithms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -818,76 +755,6 @@
           "blockrewardreduction": {
             "type": "string"
           },
-          "logobase64": {
-            "type": "object"
-          },
-          "logo": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "website": {
             "required": [
               "id",
@@ -918,6 +785,9 @@
                 "type": "object"
               },
               "affiliate": {
+                "type": "string"
+              },
+              "api": {
                 "type": "string"
               },
               "localizations": {
@@ -974,6 +844,9 @@
                 "affiliate": {
                   "type": "string"
                 },
+                "api": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -995,6 +868,355 @@
               }
             }
           },
+          "rank": {
+            "type": "integer",
+            "default": 0
+          },
+          "subdomain": {
+            "type": "boolean",
+            "default": false
+          },
+          "explorer": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "object"
+              },
+              "coin": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "logo": {
+            "required": [
+              "id",
+              "slug",
+              "data"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "data": {
+                "type": "object"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "algorithms": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ip"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "ip": {
+                  "type": "string"
+                },
+                "coin": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "apis": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "url",
+                "commands"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "commands": {
+                  "type": "dynamiczone"
+                },
+                "coin": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "web": {
+                  "type": "string"
+                },
+                "urlformat": {
+                  "type": "string",
+                  "enum": [
+                    "endpoint_command",
+                    "endpoint_coin_command",
+                    "endpoint_command_coin",
+                    "endpoint_symbol_command"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug",
+                "symbol",
+                "description",
+                "subdomain"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "whitepaper": {
+                  "type": "string"
+                },
+                "bitcointalk": {
+                  "type": "string"
+                },
+                "socials": {
+                  "type": "component"
+                },
+                "favorite": {
+                  "type": "boolean"
+                },
+                "ico": {
+                  "type": "boolean"
+                },
+                "algo": {
+                  "type": "string"
+                },
+                "proof": {
+                  "type": "string"
+                },
+                "buildon": {
+                  "type": "string"
+                },
+                "genesis": {
+                  "type": "string"
+                },
+                "hashrate": {
+                  "type": "number"
+                },
+                "supply": {
+                  "type": "number"
+                },
+                "mined": {
+                  "type": "number"
+                },
+                "blockheight": {
+                  "type": "integer"
+                },
+                "blocktime": {
+                  "type": "integer"
+                },
+                "difficulty": {
+                  "type": "number"
+                },
+                "difficultyadjustment": {
+                  "type": "string"
+                },
+                "blockreward": {
+                  "type": "number"
+                },
+                "blockrewardreduction": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rank": {
+                  "type": "integer"
+                },
+                "subdomain": {
+                  "type": "boolean"
+                },
+                "explorer": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "algorithms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "apis": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -1006,7 +1228,8 @@
           "name",
           "slug",
           "symbol",
-          "description"
+          "description",
+          "subdomain"
         ],
         "properties": {
           "name": {
@@ -1020,101 +1243,6 @@
           },
           "description": {
             "type": "string"
-          },
-          "chat": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "url",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "logo": {
-                  "required": [
-                    "id",
-                    "name",
-                    "hash",
-                    "mime",
-                    "size",
-                    "url",
-                    "provider"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternativeText": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    },
-                    "width": {
-                      "type": "integer"
-                    },
-                    "height": {
-                      "type": "integer"
-                    },
-                    "formats": {
-                      "type": "object"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "ext": {
-                      "type": "string"
-                    },
-                    "mime": {
-                      "type": "string"
-                    },
-                    "size": {
-                      "type": "number"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "previewUrl": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "provider_metadata": {
-                      "type": "object"
-                    },
-                    "related": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
           },
           "source": {
             "type": "string"
@@ -1194,9 +1322,6 @@
           "blockrewardreduction": {
             "type": "string"
           },
-          "logobase64": {
-            "type": "object"
-          },
           "website": {
             "type": "string"
           },
@@ -1205,6 +1330,47 @@
             "items": {
               "type": "string"
             }
+          },
+          "rank": {
+            "type": "integer",
+            "default": 0
+          },
+          "subdomain": {
+            "type": "boolean",
+            "default": false
+          },
+          "explorer": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "algorithms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "apis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "locale": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

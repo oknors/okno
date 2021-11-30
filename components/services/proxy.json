@@ -1,0 +1,13 @@
+{
+  "collectionName": "rps",
+  "info": {
+    "name": "proxy",
+    "icon": "fingerprint"
+  },
+  "options": {},
+  "attributes": {
+    "proxy": {
+      "type": "string"
+    }
+  }
+}

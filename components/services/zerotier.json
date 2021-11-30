@@ -1,0 +1,13 @@
+{
+  "collectionName": "zerotiers",
+  "info": {
+    "name": "zerotier",
+    "icon": "retweet"
+  },
+  "options": {},
+  "attributes": {
+    "ips": {
+      "collection": "ip"
+    }
+  }
+}

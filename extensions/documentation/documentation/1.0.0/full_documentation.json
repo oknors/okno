@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/12/2021 10:28:04 AM"
+    "x-generation-date": "11/28/2021 10:46:06 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -541,6 +541,517 @@
         "summary": "",
         "tags": [
           "Algorithm"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/apis": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Api"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Api"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewApi"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apis/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Api"
+        ],
+        "parameters": []
+      }
+    },
+    "/apis/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Api"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Api"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Api"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Api"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewApi"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Api"
         ],
         "parameters": [
           {
@@ -1372,6 +1883,517 @@
           "Config"
         ],
         "parameters": []
+      }
+    },
+    "/domains": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Domain"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Domain"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Domain"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Domain"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDomain"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/domains/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Domain"
+        ],
+        "parameters": []
+      }
+    },
+    "/domains/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Domain"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Domain"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Domain"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Domain"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDomain"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Domain"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/exchanges": {
@@ -2396,6 +3418,1028 @@
         ]
       }
     },
+    "/indices": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Index"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Index"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Index"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Index"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewIndex"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/indices/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Index"
+        ],
+        "parameters": []
+      }
+    },
+    "/indices/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Index"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Index"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Index"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Index"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewIndex"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Index"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/ips": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ip"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Ip"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ip"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Ip"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewIp"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ips/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Ip"
+        ],
+        "parameters": []
+      }
+    },
+    "/ips/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ip"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Ip"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ip"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Ip"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewIp"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Ip"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/links": {
       "get": {
         "deprecated": false,
@@ -2892,6 +4936,517 @@
         "summary": "",
         "tags": [
           "Link"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/logos": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Logo"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Logo"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logo"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Logo"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewLogo"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logos/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Logo"
+        ],
+        "parameters": []
+      }
+    },
+    "/logos/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logo"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Logo"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Logo"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Logo"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewLogo"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Logo"
         ],
         "parameters": [
           {
@@ -7356,13 +9911,378 @@
           }
         }
       },
+      "Api": {
+        "required": [
+          "id",
+          "title",
+          "slug",
+          "url",
+          "commands"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid"
+          },
+          "url": {
+            "type": "string"
+          },
+          "commands": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.api"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "command": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "coins",
+                        "coin",
+                        "exchanges",
+                        "exchange",
+                        "status",
+                        "block",
+                        "transaction",
+                        "address",
+                        "latestblock"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              ]
+            }
+          },
+          "coin": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug",
+                "symbol",
+                "description",
+                "subdomain"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "whitepaper": {
+                  "type": "string"
+                },
+                "bitcointalk": {
+                  "type": "string"
+                },
+                "socials": {
+                  "type": "component"
+                },
+                "favorite": {
+                  "type": "boolean"
+                },
+                "ico": {
+                  "type": "boolean"
+                },
+                "algo": {
+                  "type": "string"
+                },
+                "proof": {
+                  "type": "string"
+                },
+                "buildon": {
+                  "type": "string"
+                },
+                "genesis": {
+                  "type": "string"
+                },
+                "hashrate": {
+                  "type": "number"
+                },
+                "supply": {
+                  "type": "number"
+                },
+                "mined": {
+                  "type": "number"
+                },
+                "blockheight": {
+                  "type": "integer"
+                },
+                "blocktime": {
+                  "type": "integer"
+                },
+                "difficulty": {
+                  "type": "number"
+                },
+                "difficultyadjustment": {
+                  "type": "string"
+                },
+                "blockreward": {
+                  "type": "number"
+                },
+                "blockrewardreduction": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rank": {
+                  "type": "integer"
+                },
+                "subdomain": {
+                  "type": "boolean"
+                },
+                "explorer": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "algorithms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "apis": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "web": {
+            "required": [
+              "id",
+              "url",
+              "name",
+              "slug"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "description": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "logobase64": {
+                "type": "object"
+              },
+              "affiliate": {
+                "type": "string"
+              },
+              "api": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "urlformat": {
+            "type": "string",
+            "default": "endpoint_command",
+            "enum": [
+              "endpoint_command",
+              "endpoint_coin_command",
+              "endpoint_command_coin",
+              "endpoint_symbol_command"
+            ]
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewApi": {
+        "required": [
+          "title",
+          "slug",
+          "url",
+          "commands"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid"
+          },
+          "url": {
+            "type": "string"
+          },
+          "commands": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.api"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "command": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "coins",
+                        "coin",
+                        "exchanges",
+                        "exchange",
+                        "status",
+                        "block",
+                        "transaction",
+                        "address",
+                        "latestblock"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              ]
+            }
+          },
+          "coin": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "web": {
+            "type": "string"
+          },
+          "urlformat": {
+            "type": "string",
+            "default": "endpoint_command",
+            "enum": [
+              "endpoint_command",
+              "endpoint_coin_command",
+              "endpoint_command_coin",
+              "endpoint_symbol_command"
+            ]
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Coin": {
         "required": [
           "id",
           "name",
           "slug",
           "symbol",
-          "description"
+          "description",
+          "subdomain"
         ],
         "properties": {
           "id": {
@@ -7379,101 +10299,6 @@
           },
           "description": {
             "type": "string"
-          },
-          "chat": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "url",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "logo": {
-                  "required": [
-                    "id",
-                    "name",
-                    "hash",
-                    "mime",
-                    "size",
-                    "url",
-                    "provider"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternativeText": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    },
-                    "width": {
-                      "type": "integer"
-                    },
-                    "height": {
-                      "type": "integer"
-                    },
-                    "formats": {
-                      "type": "object"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "ext": {
-                      "type": "string"
-                    },
-                    "mime": {
-                      "type": "string"
-                    },
-                    "size": {
-                      "type": "number"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "previewUrl": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "provider_metadata": {
-                      "type": "object"
-                    },
-                    "related": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
           },
           "source": {
             "type": "string"
@@ -7525,7 +10350,8 @@
               "name",
               "slug",
               "symbol",
-              "description"
+              "description",
+              "subdomain"
             ],
             "properties": {
               "id": {
@@ -7542,9 +10368,6 @@
               },
               "description": {
                 "type": "string"
-              },
-              "chat": {
-                "type": "component"
               },
               "source": {
                 "type": "string"
@@ -7603,12 +10426,6 @@
               "blockrewardreduction": {
                 "type": "string"
               },
-              "logobase64": {
-                "type": "object"
-              },
-              "logo": {
-                "type": "string"
-              },
               "website": {
                 "type": "string"
               },
@@ -7617,6 +10434,45 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "subdomain": {
+                "type": "boolean"
+              },
+              "explorer": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "algorithms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -7660,76 +10516,6 @@
           "blockrewardreduction": {
             "type": "string"
           },
-          "logobase64": {
-            "type": "object"
-          },
-          "logo": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "website": {
             "required": [
               "id",
@@ -7760,6 +10546,9 @@
                 "type": "object"
               },
               "affiliate": {
+                "type": "string"
+              },
+              "api": {
                 "type": "string"
               },
               "localizations": {
@@ -7816,6 +10605,9 @@
                 "affiliate": {
                   "type": "string"
                 },
+                "api": {
+                  "type": "string"
+                },
                 "localizations": {
                   "type": "array",
                   "items": {
@@ -7837,6 +10629,355 @@
               }
             }
           },
+          "rank": {
+            "type": "integer",
+            "default": 0
+          },
+          "subdomain": {
+            "type": "boolean",
+            "default": false
+          },
+          "explorer": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "status": {
+                "type": "object"
+              },
+              "coin": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "logo": {
+            "required": [
+              "id",
+              "slug",
+              "data"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "data": {
+                "type": "object"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "algorithms": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ip"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "ip": {
+                  "type": "string"
+                },
+                "coin": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "apis": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "slug",
+                "url",
+                "commands"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "commands": {
+                  "type": "dynamiczone"
+                },
+                "coin": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "web": {
+                  "type": "string"
+                },
+                "urlformat": {
+                  "type": "string",
+                  "enum": [
+                    "endpoint_command",
+                    "endpoint_coin_command",
+                    "endpoint_command_coin",
+                    "endpoint_symbol_command"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug",
+                "symbol",
+                "description",
+                "subdomain"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "symbol": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "whitepaper": {
+                  "type": "string"
+                },
+                "bitcointalk": {
+                  "type": "string"
+                },
+                "socials": {
+                  "type": "component"
+                },
+                "favorite": {
+                  "type": "boolean"
+                },
+                "ico": {
+                  "type": "boolean"
+                },
+                "algo": {
+                  "type": "string"
+                },
+                "proof": {
+                  "type": "string"
+                },
+                "buildon": {
+                  "type": "string"
+                },
+                "genesis": {
+                  "type": "string"
+                },
+                "hashrate": {
+                  "type": "number"
+                },
+                "supply": {
+                  "type": "number"
+                },
+                "mined": {
+                  "type": "number"
+                },
+                "blockheight": {
+                  "type": "integer"
+                },
+                "blocktime": {
+                  "type": "integer"
+                },
+                "difficulty": {
+                  "type": "number"
+                },
+                "difficultyadjustment": {
+                  "type": "string"
+                },
+                "blockreward": {
+                  "type": "number"
+                },
+                "blockrewardreduction": {
+                  "type": "string"
+                },
+                "website": {
+                  "type": "string"
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rank": {
+                  "type": "integer"
+                },
+                "subdomain": {
+                  "type": "boolean"
+                },
+                "explorer": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "algorithms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "apis": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -7848,7 +10989,8 @@
           "name",
           "slug",
           "symbol",
-          "description"
+          "description",
+          "subdomain"
         ],
         "properties": {
           "name": {
@@ -7862,101 +11004,6 @@
           },
           "description": {
             "type": "string"
-          },
-          "chat": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "url",
-                "name"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "logo": {
-                  "required": [
-                    "id",
-                    "name",
-                    "hash",
-                    "mime",
-                    "size",
-                    "url",
-                    "provider"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternativeText": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    },
-                    "width": {
-                      "type": "integer"
-                    },
-                    "height": {
-                      "type": "integer"
-                    },
-                    "formats": {
-                      "type": "object"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "ext": {
-                      "type": "string"
-                    },
-                    "mime": {
-                      "type": "string"
-                    },
-                    "size": {
-                      "type": "number"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "previewUrl": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "provider_metadata": {
-                      "type": "object"
-                    },
-                    "related": {
-                      "type": "string"
-                    },
-                    "created_by": {
-                      "type": "string"
-                    },
-                    "updated_by": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
           },
           "source": {
             "type": "string"
@@ -8036,9 +11083,6 @@
           "blockrewardreduction": {
             "type": "string"
           },
-          "logobase64": {
-            "type": "object"
-          },
           "website": {
             "type": "string"
           },
@@ -8047,6 +11091,47 @@
             "items": {
               "type": "string"
             }
+          },
+          "rank": {
+            "type": "integer",
+            "default": 0
+          },
+          "subdomain": {
+            "type": "boolean",
+            "default": false
+          },
+          "explorer": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "algorithms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "apis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "locale": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -8236,6 +11321,105 @@
           }
         }
       },
+      "Domain": {
+        "required": [
+          "id",
+          "name",
+          "tld"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sub": {
+            "type": "string",
+            "maxLength": 63,
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 63,
+            "minLength": 1
+          },
+          "tld": {
+            "type": "string",
+            "maxLength": 63,
+            "minLength": 1
+          },
+          "ip": {
+            "required": [
+              "id",
+              "part1",
+              "part2",
+              "part3",
+              "part4"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "part1": {
+                "type": "integer"
+              },
+              "part2": {
+                "type": "integer"
+              },
+              "part3": {
+                "type": "integer"
+              },
+              "part4": {
+                "type": "integer"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewDomain": {
+        "required": [
+          "name",
+          "tld"
+        ],
+        "properties": {
+          "sub": {
+            "type": "string",
+            "maxLength": 63,
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 63,
+            "minLength": 1
+          },
+          "tld": {
+            "type": "string",
+            "maxLength": 63,
+            "minLength": 1
+          },
+          "ip": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Exchange": {
         "required": [
           "id",
@@ -8336,7 +11520,8 @@
                 "name",
                 "slug",
                 "symbol",
-                "description"
+                "description",
+                "subdomain"
               ],
               "properties": {
                 "id": {
@@ -8353,9 +11538,6 @@
                 },
                 "description": {
                   "type": "string"
-                },
-                "chat": {
-                  "type": "component"
                 },
                 "source": {
                   "type": "string"
@@ -8414,12 +11596,6 @@
                 "blockrewardreduction": {
                   "type": "string"
                 },
-                "logobase64": {
-                  "type": "object"
-                },
-                "logo": {
-                  "type": "string"
-                },
                 "website": {
                   "type": "string"
                 },
@@ -8428,6 +11604,45 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "rank": {
+                  "type": "integer"
+                },
+                "subdomain": {
+                  "type": "boolean"
+                },
+                "explorer": {
+                  "type": "string"
+                },
+                "logo": {
+                  "type": "string"
+                },
+                "algorithms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "apis": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -8503,7 +11718,8 @@
               "name",
               "slug",
               "symbol",
-              "description"
+              "description",
+              "subdomain"
             ],
             "properties": {
               "id": {
@@ -8520,9 +11736,6 @@
               },
               "description": {
                 "type": "string"
-              },
-              "chat": {
-                "type": "component"
               },
               "source": {
                 "type": "string"
@@ -8581,12 +11794,6 @@
               "blockrewardreduction": {
                 "type": "string"
               },
-              "logobase64": {
-                "type": "object"
-              },
-              "logo": {
-                "type": "string"
-              },
               "website": {
                 "type": "string"
               },
@@ -8595,6 +11802,45 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "subdomain": {
+                "type": "boolean"
+              },
+              "explorer": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "algorithms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -8624,6 +11870,104 @@
           "published_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Index": {
+        "required": [
+          "id",
+          "slug"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid"
+          },
+          "index": {
+            "type": "object"
+          }
+        }
+      },
+      "NewIndex": {
+        "required": [
+          "slug"
+        ],
+        "properties": {
+          "slug": {
+            "type": "uid"
+          },
+          "index": {
+            "type": "object"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Ip": {
+        "required": [
+          "id",
+          "part1",
+          "part2",
+          "part3",
+          "part4"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "part1": {
+            "type": "integer",
+            "default": 0
+          },
+          "part2": {
+            "type": "integer",
+            "default": 0
+          },
+          "part3": {
+            "type": "integer",
+            "default": 0
+          },
+          "part4": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "NewIp": {
+        "required": [
+          "part1",
+          "part2",
+          "part3",
+          "part4"
+        ],
+        "properties": {
+          "part1": {
+            "type": "integer",
+            "default": 0
+          },
+          "part2": {
+            "type": "integer",
+            "default": 0
+          },
+          "part3": {
+            "type": "integer",
+            "default": 0
+          },
+          "part4": {
+            "type": "integer",
+            "default": 0
           },
           "created_by": {
             "type": "string"
@@ -8729,6 +12073,59 @@
           "affiliate": {
             "type": "string"
           },
+          "api": {
+            "required": [
+              "id",
+              "title",
+              "slug",
+              "url",
+              "commands"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "url": {
+                "type": "string"
+              },
+              "commands": {
+                "type": "dynamiczone"
+              },
+              "coin": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "web": {
+                "type": "string"
+              },
+              "urlformat": {
+                "type": "string",
+                "enum": [
+                  "endpoint_command",
+                  "endpoint_coin_command",
+                  "endpoint_command_coin",
+                  "endpoint_symbol_command"
+                ]
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -8761,6 +12158,9 @@
                   "type": "object"
                 },
                 "affiliate": {
+                  "type": "string"
+                },
+                "api": {
                   "type": "string"
                 },
                 "localizations": {
@@ -8818,6 +12218,115 @@
           "affiliate": {
             "type": "string"
           },
+          "api": {
+            "type": "string"
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Logo": {
+        "required": [
+          "id",
+          "slug",
+          "data"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid"
+          },
+          "ext": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          },
+          "localizations": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "slug",
+                "data"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object"
+                },
+                "localizations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "locale": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewLogo": {
+        "required": [
+          "slug",
+          "data"
+        ],
+        "properties": {
+          "slug": {
+            "type": "uid"
+          },
+          "ext": {
+            "type": "string"
+          },
+          "data": {
+            "type": "object"
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -8851,6 +12360,147 @@
           "ip": {
             "type": "string"
           },
+          "coin": {
+            "required": [
+              "id",
+              "name",
+              "slug",
+              "symbol",
+              "description",
+              "subdomain"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "whitepaper": {
+                "type": "string"
+              },
+              "bitcointalk": {
+                "type": "string"
+              },
+              "socials": {
+                "type": "component"
+              },
+              "favorite": {
+                "type": "boolean"
+              },
+              "ico": {
+                "type": "boolean"
+              },
+              "algo": {
+                "type": "string"
+              },
+              "proof": {
+                "type": "string"
+              },
+              "buildon": {
+                "type": "string"
+              },
+              "genesis": {
+                "type": "string"
+              },
+              "hashrate": {
+                "type": "number"
+              },
+              "supply": {
+                "type": "number"
+              },
+              "mined": {
+                "type": "number"
+              },
+              "blockheight": {
+                "type": "integer"
+              },
+              "blocktime": {
+                "type": "integer"
+              },
+              "difficulty": {
+                "type": "number"
+              },
+              "difficultyadjustment": {
+                "type": "string"
+              },
+              "blockreward": {
+                "type": "number"
+              },
+              "blockrewardreduction": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "subdomain": {
+                "type": "boolean"
+              },
+              "explorer": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "algorithms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8863,6 +12513,9 @@
         ],
         "properties": {
           "ip": {
+            "type": "string"
+          },
+          "coin": {
             "type": "string"
           },
           "published_at": {
@@ -8881,7 +12534,9 @@
         "required": [
           "id",
           "name",
-          "ip"
+          "ip",
+          "hostname",
+          "type"
         ],
         "properties": {
           "id": {
@@ -8893,9 +12548,6 @@
           "description": {
             "type": "string"
           },
-          "hostname": {
-            "type": "string"
-          },
           "ip": {
             "type": "string"
           },
@@ -8917,20 +12569,8 @@
               "freebsd13"
             ]
           },
-          "processor": {
-            "type": "number"
-          },
-          "number": {
-            "type": "integer"
-          },
           "addip": {
             "type": "string"
-          },
-          "memory": {
-            "type": "integer"
-          },
-          "disk": {
-            "type": "integer"
           },
           "localip": {
             "type": "string"
@@ -8941,6 +12581,80 @@
               "novisad",
               "vilnius"
             ]
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "dedicated",
+              "vps"
+            ]
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug",
+                "service",
+                "port"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "service": {
+                  "type": "dynamiczone"
+                },
+                "server": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "interval": {
+                  "type": "integer"
+                },
+                "timeout": {
+                  "type": "integer"
+                },
+                "proto": {
+                  "type": "string",
+                  "enum": [
+                    "tcp",
+                    "udp"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "coin",
+                    "status",
+                    "jdb",
+                    "jorm",
+                    "explorer"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -8951,16 +12665,15 @@
       "NewServer": {
         "required": [
           "name",
-          "ip"
+          "ip",
+          "hostname",
+          "type"
         ],
         "properties": {
           "name": {
             "type": "string"
           },
           "description": {
-            "type": "string"
-          },
-          "hostname": {
             "type": "string"
           },
           "ip": {
@@ -8984,20 +12697,8 @@
               "freebsd13"
             ]
           },
-          "processor": {
-            "type": "number"
-          },
-          "number": {
-            "type": "integer"
-          },
           "addip": {
             "type": "string"
-          },
-          "memory": {
-            "type": "integer"
-          },
-          "disk": {
-            "type": "integer"
           },
           "localip": {
             "type": "string"
@@ -9008,6 +12709,22 @@
               "novisad",
               "vilnius"
             ]
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "dedicated",
+              "vps"
+            ]
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -9026,7 +12743,8 @@
           "id",
           "name",
           "slug",
-          "service"
+          "service",
+          "port"
         ],
         "properties": {
           "id": {
@@ -9051,7 +12769,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9067,6 +12788,9 @@
                           "type": "string"
                         },
                         "ip": {
+                          "type": "string"
+                        },
+                        "coin": {
                           "type": "string"
                         },
                         "published_at": {
@@ -9094,18 +12818,64 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
                       "type": "string"
                     },
-                    "domain": {
-                      "type": "string"
+                    "domains": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "name",
+                          "tld"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "sub": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "tld": {
+                            "type": "string"
+                          },
+                          "ip": {
+                            "type": "string"
+                          },
+                          "published_at": {
+                            "type": "string"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "type": {
+                      "type": "string",
+                      "default": "user",
+                      "enum": [
+                        "api",
+                        "admin",
+                        "user"
+                      ]
                     }
                   },
                   "required": [
-                    "id"
+                    "id",
+                    "type"
                   ]
                 },
                 {
@@ -9117,7 +12887,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9141,7 +12914,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9165,7 +12941,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9200,9 +12979,260 @@
                   "required": [
                     "id"
                   ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ips": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "part1",
+                          "part2",
+                          "part3",
+                          "part4"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "part1": {
+                            "type": "integer"
+                          },
+                          "part2": {
+                            "type": "integer"
+                          },
+                          "part3": {
+                            "type": "integer"
+                          },
+                          "part4": {
+                            "type": "integer"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ip": {
+                      "required": [
+                        "id",
+                        "part1",
+                        "part2",
+                        "part3",
+                        "part4"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "part1": {
+                          "type": "integer"
+                        },
+                        "part2": {
+                          "type": "integer"
+                        },
+                        "part3": {
+                          "type": "integer"
+                        },
+                        "part4": {
+                          "type": "integer"
+                        },
+                        "created_by": {
+                          "type": "string"
+                        },
+                        "updated_by": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "pub": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "pub"
+                  ]
                 }
               ]
+            },
+            "minItems": 1,
+            "maxItems": 1
+          },
+          "server": {
+            "required": [
+              "id",
+              "name",
+              "ip",
+              "hostname",
+              "type"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "ip": {
+                "type": "string"
+              },
+              "zerotier": {
+                "type": "string"
+              },
+              "tailscale": {
+                "type": "string"
+              },
+              "os": {
+                "type": "string",
+                "enum": [
+                  "centos6",
+                  "centos7",
+                  "ubuntu16",
+                  "ubuntu18",
+                  "ubuntu20",
+                  "freebsd12",
+                  "freebsd13"
+                ]
+              },
+              "addip": {
+                "type": "string"
+              },
+              "localip": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string",
+                "enum": [
+                  "novisad",
+                  "vilnius"
+                ]
+              },
+              "hostname": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "dedicated",
+                  "vps"
+                ]
+              },
+              "services": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
             }
+          },
+          "port": {
+            "type": "integer"
+          },
+          "interval": {
+            "type": "integer",
+            "default": 60
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 5
+          },
+          "proto": {
+            "type": "string",
+            "default": "tcp",
+            "enum": [
+              "tcp",
+              "udp"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "default": "jorm",
+            "enum": [
+              "coin",
+              "status",
+              "jdb",
+              "jorm",
+              "explorer"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -9214,7 +13244,8 @@
         "required": [
           "name",
           "slug",
-          "service"
+          "service",
+          "port"
         ],
         "properties": {
           "name": {
@@ -9236,7 +13267,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9252,6 +13286,9 @@
                           "type": "string"
                         },
                         "ip": {
+                          "type": "string"
+                        },
+                        "coin": {
                           "type": "string"
                         },
                         "published_at": {
@@ -9279,18 +13316,64 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
                       "type": "string"
                     },
-                    "domain": {
-                      "type": "string"
+                    "domains": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "name",
+                          "tld"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "sub": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "tld": {
+                            "type": "string"
+                          },
+                          "ip": {
+                            "type": "string"
+                          },
+                          "published_at": {
+                            "type": "string"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "type": {
+                      "type": "string",
+                      "default": "user",
+                      "enum": [
+                        "api",
+                        "admin",
+                        "user"
+                      ]
                     }
                   },
                   "required": [
-                    "id"
+                    "id",
+                    "type"
                   ]
                 },
                 {
@@ -9302,7 +13385,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9326,7 +13412,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9350,7 +13439,10 @@
                         "services.web",
                         "services.server",
                         "services.jorm",
-                        "services.explorer"
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
                       ]
                     },
                     "id": {
@@ -9385,9 +13477,184 @@
                   "required": [
                     "id"
                   ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ips": {
+                      "type": "array",
+                      "items": {
+                        "required": [
+                          "id",
+                          "part1",
+                          "part2",
+                          "part3",
+                          "part4"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "part1": {
+                            "type": "integer"
+                          },
+                          "part2": {
+                            "type": "integer"
+                          },
+                          "part3": {
+                            "type": "integer"
+                          },
+                          "part4": {
+                            "type": "integer"
+                          },
+                          "created_by": {
+                            "type": "string"
+                          },
+                          "updated_by": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "ip": {
+                      "required": [
+                        "id",
+                        "part1",
+                        "part2",
+                        "part3",
+                        "part4"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "part1": {
+                          "type": "integer"
+                        },
+                        "part2": {
+                          "type": "integer"
+                        },
+                        "part3": {
+                          "type": "integer"
+                        },
+                        "part4": {
+                          "type": "integer"
+                        },
+                        "created_by": {
+                          "type": "string"
+                        },
+                        "updated_by": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "services.coindaemon",
+                        "services.web",
+                        "services.server",
+                        "services.jorm",
+                        "services.explorer",
+                        "services.zerotier",
+                        "services.tailscale",
+                        "services.ipfs"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "pub": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "pub"
+                  ]
                 }
               ]
-            }
+            },
+            "minItems": 1,
+            "maxItems": 1
+          },
+          "server": {
+            "type": "string"
+          },
+          "port": {
+            "type": "integer"
+          },
+          "interval": {
+            "type": "integer",
+            "default": 60
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 5
+          },
+          "proto": {
+            "type": "string",
+            "default": "tcp",
+            "enum": [
+              "tcp",
+              "udp"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "default": "jorm",
+            "enum": [
+              "coin",
+              "status",
+              "jdb",
+              "jorm",
+              "explorer"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -9796,10 +14063,16 @@
       "name": "Algorithm"
     },
     {
+      "name": "Api"
+    },
+    {
       "name": "Coin"
     },
     {
       "name": "Config"
+    },
+    {
+      "name": "Domain"
     },
     {
       "name": "Exchange"
@@ -9808,7 +14081,16 @@
       "name": "Explorer"
     },
     {
+      "name": "Index"
+    },
+    {
+      "name": "Ip"
+    },
+    {
       "name": "Link"
+    },
+    {
+      "name": "Logo"
     },
     {
       "name": "Node"

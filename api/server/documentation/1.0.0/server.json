@@ -518,7 +518,9 @@
         "required": [
           "id",
           "name",
-          "ip"
+          "ip",
+          "hostname",
+          "type"
         ],
         "properties": {
           "id": {
@@ -530,9 +532,6 @@
           "description": {
             "type": "string"
           },
-          "hostname": {
-            "type": "string"
-          },
           "ip": {
             "type": "string"
           },
@@ -554,20 +553,8 @@
               "freebsd13"
             ]
           },
-          "processor": {
-            "type": "number"
-          },
-          "number": {
-            "type": "integer"
-          },
           "addip": {
             "type": "string"
-          },
-          "memory": {
-            "type": "integer"
-          },
-          "disk": {
-            "type": "integer"
           },
           "localip": {
             "type": "string"
@@ -578,6 +565,80 @@
               "novisad",
               "vilnius"
             ]
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "dedicated",
+              "vps"
+            ]
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "slug",
+                "service",
+                "port"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "service": {
+                  "type": "dynamiczone"
+                },
+                "server": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "interval": {
+                  "type": "integer"
+                },
+                "timeout": {
+                  "type": "integer"
+                },
+                "proto": {
+                  "type": "string",
+                  "enum": [
+                    "tcp",
+                    "udp"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "coin",
+                    "status",
+                    "jdb",
+                    "jorm",
+                    "explorer"
+                  ]
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -588,16 +649,15 @@
       "NewServer": {
         "required": [
           "name",
-          "ip"
+          "ip",
+          "hostname",
+          "type"
         ],
         "properties": {
           "name": {
             "type": "string"
           },
           "description": {
-            "type": "string"
-          },
-          "hostname": {
             "type": "string"
           },
           "ip": {
@@ -621,20 +681,8 @@
               "freebsd13"
             ]
           },
-          "processor": {
-            "type": "number"
-          },
-          "number": {
-            "type": "integer"
-          },
           "addip": {
             "type": "string"
-          },
-          "memory": {
-            "type": "integer"
-          },
-          "disk": {
-            "type": "integer"
           },
           "localip": {
             "type": "string"
@@ -645,6 +693,22 @@
               "novisad",
               "vilnius"
             ]
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "dedicated",
+              "vps"
+            ]
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

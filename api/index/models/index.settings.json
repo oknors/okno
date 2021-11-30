@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "indices",
+  "info": {
+    "name": "index"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "index": {
+      "type": "json"
+    }
+  }
+}

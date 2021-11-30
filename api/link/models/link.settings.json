@@ -81,6 +81,10 @@
         }
       },
       "type": "string"
+    },
+    "api": {
+      "via": "web",
+      "model": "api"
     }
   }
 }

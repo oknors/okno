@@ -2,12 +2,23 @@
   "collectionName": "components_services_webs",
   "info": {
     "name": "web",
-    "icon": "hanukiah"
+    "icon": "hanukiah",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "domain": {
-      "type": "string"
+    "domains": {
+      "collection": "domain"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "api",
+        "admin",
+        "user"
+      ],
+      "default": "user",
+      "required": true
     }
   }
 }

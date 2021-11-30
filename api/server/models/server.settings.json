@@ -19,9 +19,6 @@
     "description": {
       "type": "richtext"
     },
-    "hostname": {
-      "type": "richtext"
-    },
     "ip": {
       "type": "string",
       "required": true
@@ -44,20 +41,8 @@
         "freebsd13"
       ]
     },
-    "processor": {
-      "type": "decimal"
-    },
-    "number": {
-      "type": "integer"
-    },
     "addip": {
       "type": "string"
-    },
-    "memory": {
-      "type": "integer"
-    },
-    "disk": {
-      "type": "integer"
     },
     "localip": {
       "type": "string"
@@ -68,6 +53,23 @@
         "novisad",
         "vilnius"
       ]
+    },
+    "hostname": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "dedicated",
+        "vps"
+      ],
+      "required": true
+    },
+    "services": {
+      "via": "server",
+      "collection": "service"
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_services_apis",
+  "info": {
+    "name": "api",
+    "icon": "dice-d20",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "command": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "coins",
+        "coin",
+        "exchanges",
+        "exchange",
+        "status",
+        "block",
+        "transaction",
+        "address",
+        "latestblock"
+      ]
+    }
+  }
+}

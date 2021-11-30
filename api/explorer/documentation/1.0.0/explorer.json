@@ -531,7 +531,8 @@
               "name",
               "slug",
               "symbol",
-              "description"
+              "description",
+              "subdomain"
             ],
             "properties": {
               "id": {
@@ -548,9 +549,6 @@
               },
               "description": {
                 "type": "string"
-              },
-              "chat": {
-                "type": "component"
               },
               "source": {
                 "type": "string"
@@ -609,12 +607,6 @@
               "blockrewardreduction": {
                 "type": "string"
               },
-              "logobase64": {
-                "type": "object"
-              },
-              "logo": {
-                "type": "string"
-              },
               "website": {
                 "type": "string"
               },
@@ -623,6 +615,45 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "subdomain": {
+                "type": "boolean"
+              },
+              "explorer": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "algorithms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apis": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "locale": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

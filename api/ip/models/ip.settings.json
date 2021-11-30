@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ips",
+  "info": {
+    "name": "ip",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "part1": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0,
+      "max": 255
+    },
+    "part2": {
+      "type": "integer",
+      "required": true,
+      "max": 255,
+      "min": 0,
+      "default": 0
+    },
+    "part3": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0,
+      "max": 255
+    },
+    "part4": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0,
+      "max": 255
+    }
+  }
+}
